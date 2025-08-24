@@ -1,6 +1,17 @@
 {
   "name": "messengers-path",
   "version": "0.3.0",
+  "description": "A modern, immersive text adventure game for web and CLI inspired by DOS-era classics.",
+  "author": "techiedip",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/techiedip/The-Messengers-Path.git"
+  },
+  "homepage": "https://techiedip.github.io/The-Messengers-Path/",
+  "bugs": {
+    "url": "https://github.com/techiedip/The-Messengers-Path/issues"
+  },
   "private": true,
   "type": "module",
   "scripts": {

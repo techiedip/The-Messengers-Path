@@ -1,6 +1,7 @@
+
 # The Messenger's Path
 
-Full Disclosure: This is a game I've completely vibe coded, but I wanted to do a fun experiment paying homage to the text-based adventure games of the DOS era. While it's not perfect, I hope it gives you inspiration to bring back the text adventure games with depth in story and branching choices.
+**Full Disclosure:** This is a game I've completely vibe-coded as a fun experiment, paying homage to the text-based adventure games of the DOS era. While it's not perfect, I hope it inspires you to bring back text adventures with depth in story and branching choices.
 
 ## Overview
 A modern, immersive text adventure game playable in your browser or CLI. Navigate branching choices, manage stats, and uncover clues as you journey through a world inspired by classic DOS-era adventures.
@@ -23,6 +24,13 @@ A modern, immersive text adventure game playable in your browser or CLI. Navigat
    npx serve webui -l 5173
    ```
 4. Open your browser to [http://localhost:5173](http://localhost:5173)
+
+## Usage
+- To play in the browser, use the local server as above or visit the [GitHub Pages site](https://techiedip.github.io/The-Messengers-Path/) (if enabled).
+- To play in the CLI, run:
+  ```sh
+  npm run dev
+  ```
 
 ## Folder Structure
 - `webui/` — Web UI (HTML, JS, CSS, content JSON)
