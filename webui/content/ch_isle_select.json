@@ -1,0 +1,75 @@
+{
+  "id": "ch_isle_select",
+  "title": "Choose Isle",
+  "scenes": [
+    {
+      "id": "choose",
+      "title": "Chart the Course",
+      "text": "From the deck, four horizons beckon. Captain Istra asks: 'Where to next?'",
+      "choices": [
+        {
+          "id": "to_iron",
+          "label": "Sail to Isle of Iron",
+          "effects": [
+            {
+              "type": "goto",
+              "chapterId": "ch2_iron",
+              "sceneId": "arrival"
+            }
+          ]
+        },
+        {
+          "id": "to_whispers",
+          "label": "Sail to Isle of Whispers",
+          "effects": [
+            {
+              "type": "goto",
+              "chapterId": "ch3_whispers",
+              "sceneId": "arrival"
+            }
+          ]
+        },
+        {
+          "id": "to_ashen",
+          "label": "Sail to Isle of Ashen Markets",
+          "effects": [
+            {
+              "type": "goto",
+              "chapterId": "ch4_ashen",
+              "sceneId": "arrival"
+            }
+          ]
+        },
+        {
+          "id": "to_veilbreak",
+          "label": "Sail to Isle of Veilbreak",
+          "effects": [
+            {
+              "type": "goto",
+              "chapterId": "ch5_veilbreak",
+              "sceneId": "arrival"
+            }
+          ]
+        },
+        {
+          "id": "to_convergence",
+          "label": "Sail home (Convergence)",
+          "requirements": [
+            {
+              "type": "flagMin",
+              "flag": "Allies",
+              "min": 3
+            }
+          ],
+          "effects": [
+            {
+              "type": "goto",
+              "chapterId": "ch6_convergence",
+              "sceneId": "return"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,637 @@
+{
+  "id": "ch2_iron",
+  "title": "Isle of Iron",
+  "scenes": [
+    {
+      "id": "arrival",
+      "title": "Torchlit Docks",
+      "text": "Crossed-axe banners and rain-slick mail. 'Learn their temper,' Istra warns.",
+      "npcs": [
+        {
+          "id": "torv",
+          "name": "Torv the Dock Guard",
+          "desc": "square-jawed, rain-spattered mail"
+        },
+        {
+          "id": "astrid",
+          "name": "Astrid the Fishwife",
+          "desc": "salt-cracked hands, sharp eyes"
+        },
+        {
+          "id": "hild",
+          "name": "Hild the Armorer",
+          "desc": "soot-smudged, hawk gaze"
+        }
+      ],
+      "choices": [
+        {
+          "id": "talk_torv",
+          "label": "Talk to Torv (courage matters)",
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Iron_Valor",
+              "amount": 1
+            }
+          ],
+          "text": "Torv sizes you up: 'Steel in your eyes, not just your hand.'",
+          "next": "arrival"
+        },
+        {
+          "id": "torv_press",
+          "label": "Press Torv on duels (strength \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "might",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Iron_DeedsOverWords",
+              "amount": 1
+            }
+          ],
+          "next": "arrival"
+        },
+        {
+          "id": "bribe_torv",
+          "label": "Bribe Torv (1 coin)",
+          "requirements": [
+            {
+              "type": "coins",
+              "min": 1
+            }
+          ],
+          "effects": [
+            {
+              "type": "coins",
+              "delta": -1
+            },
+            {
+              "type": "addFlag",
+              "flag": "Iron_HatesCowards",
+              "amount": 1
+            }
+          ],
+          "next": "arrival"
+        },
+        {
+          "id": "talk_astrid",
+          "label": "Talk to Astrid (loyalty)",
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Iron_LoyalToOwn",
+              "amount": 1
+            }
+          ],
+          "text": "Astrid nods curtly: 'Blood before coin, always.'",
+          "next": "arrival"
+        },
+        {
+          "id": "observe_astrid",
+          "label": "Watch villagers (keen insight \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Iron_HonorsMight",
+              "amount": 1
+            }
+          ],
+          "text": "You notice the villagers’ glances linger on scars, not smiles.",
+          "next": "arrival"
+        },
+        {
+          "id": "talk_hild",
+          "label": "Chat with Hild (poise \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "charm",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Iron_DistrustsFlattery",
+              "amount": 1
+            }
+          ],
+          "text": "Hild grunts: 'Flattery’s for weak steel.'",
+          "next": "arrival"
+        },
+        {
+          "id": "intimidate_hild",
+          "label": "Intimidate Hild (strength \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "might",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Iron_DuelRespected",
+              "amount": 1
+            }
+          ],
+          "next": "arrival"
+        },
+        {
+          "id": "to_training",
+          "label": "Proceed to training grounds",
+          "next": "training"
+        },
+        {
+          "id": "torv_might",
+          "label": "Press Torv with strength (strength \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "might",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Iron_DeedsOverWords",
+              "amount": 1
+            }
+          ],
+          "next": "arrival"
+        },
+        {
+          "id": "astrid_buy",
+          "label": "Buy Astrid's fish (1 coin)",
+          "requirements": [
+            {
+              "type": "coins",
+              "min": 1
+            }
+          ],
+          "effects": [
+            {
+              "type": "coins",
+              "delta": -1
+            },
+            {
+              "type": "addFlag",
+              "flag": "Iron_DistrustsFlattery",
+              "amount": 1
+            }
+          ],
+          "next": "arrival"
+        }
+      ]
+    },
+    {
+      "id": "training",
+      "title": "Training Grounds",
+      "text": "Rings of sparring, steel ringing. Children wrestle, elders sharpen blades.\\n\\nHalric hums a verse under his breath:\\n\u201cSteel rings true when boasts fall flat;\\n  A single deed will speak for ten.\\n  Beware the hand that buys applause\u2014\\n  It claps alone, and not again.\u201d",
+      "npcs": [
+        {
+          "id": "kara",
+          "name": "Kara the Young Challenger",
+          "desc": "wiry, braided hair, eyes bright with fight"
+        },
+        {
+          "id": "vorn",
+          "name": "Vorn the Retired Soldier",
+          "desc": "one-armed veteran, flint-dry voice"
+        },
+        {
+          "id": "halric",
+          "name": "Halric the Bard",
+          "desc": "silver hair, clever eyes, lute"
+        }
+      ],
+      "choices": [
+        {
+          "id": "kara_talk",
+          "label": "Talk to Kara (war-lust)",
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Iron_WarHungry",
+              "amount": 1
+            }
+          ],
+          "text": "Kara grins, fists raised: 'Every scar’s a lesson.'",
+          "next": "training"
+        },
+        {
+          "id": "kara_observe",
+          "label": "Watch Kara (keen insight \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Iron_ValuesStraightforwardness",
+              "amount": 1
+            }
+          ],
+          "text": "You catch her eyes—steady, unblinking, eager for the next bout.",
+          "next": "training"
+        },
+        {
+          "id": "kara_spar",
+          "label": "Test yourself against Kara (strength \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "might",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "might",
+              "amount": 1
+            },
+            {
+              "type": "addFlag",
+              "flag": "Iron_RespectsYou",
+              "amount": 1
+            }
+          ],
+          "onFail": [
+            {
+              "type": "addFlag",
+              "flag": "Suspicion",
+              "amount": 1
+            }
+          ],
+          "oneShotKey": "kara_spar",
+          "next": "training"
+        },
+        {
+          "id": "vorn_wit",
+          "label": "Finish Vorn's proverb (keen insight \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Iron_CourageFirst",
+              "amount": 1
+            }
+          ],
+          "text": "Vorn’s flint-dry voice: 'Courage first, then cleverness.'",
+          "next": "training"
+        },
+        {
+          "id": "vorn_charm",
+          "label": "Plain talk with Vorn (poise \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "charm",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Iron_NotWithConquerer",
+              "amount": 1
+            }
+          ],
+          "onFail": [
+            {
+              "type": "addFlag",
+              "flag": "Suspicion",
+              "amount": 1
+            }
+          ],
+          "text": "He nods: 'Plain words, plain steel.'",
+          "next": "training"
+        },
+        {
+          "id": "halric_listen",
+          "label": "Listen to Halric's verse (fair combat)",
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Iron_FairCombat",
+              "amount": 1
+            },
+            {
+              "type": "addFlag",
+              "flag": "Iron_AntiConquerer",
+              "amount": 1
+            }
+          ],
+          "text": "Halric’s song: 'A single deed will speak for ten.'",
+          "next": "training"
+        },
+        {
+          "id": "to_hall",
+          "label": "Enter the Great Hall",
+          "next": "hall"
+        },
+        {
+          "id": "halric_wit",
+          "label": "Ponder Halric’s verse (keen insight \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Iron_AntiConquerer",
+              "amount": 1
+            }
+          ],
+          "text": "You catch a hidden warning in his rhyme about conquerors.",
+          "next": "training"
+        }
+      ]
+    },
+    {
+      "id": "hall",
+      "title": "The Great Hall",
+      "text": "Banners and antlers; Brynjar’s one good eye weighs you. Deeds over words.",
+      "npcs": [
+        {
+          "id": "ulf",
+          "name": "Ulf, Shield-Bearer",
+          "desc": "scarred brow, stoic"
+        },
+        {
+          "id": "runa",
+          "name": "Runa, Skald",
+          "desc": "ink-stained fingers, keen smile"
+        },
+        {
+          "id": "ival",
+          "name": "Ival, Cup-Bearer",
+          "desc": "quick hands, nervous eyes"
+        }
+      ],
+      "choices": [
+        {
+          "id": "sound_ulf",
+          "label": "Talk to Ulf (deeds over words)",
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Iron_DeedsOverWords",
+              "amount": 1
+            }
+          ],
+          "text": "Ulf’s reply is a nod and a grunt—words are wasted here.",
+          "next": "hall"
+        },
+        {
+          "id": "sound_runa",
+          "label": "Study Runa’s cadence (keen insight \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Iron_BoredByBoast",
+              "amount": 1
+            }
+          ],
+          "text": "Runa’s eyes flick to the banners: 'Boasts fade, deeds remain.'",
+          "next": "hall"
+        },
+        {
+          "id": "sound_ival",
+          "label": "Whisper with Ival (poise \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "charm",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Iron_RespectStoicism",
+              "amount": 1
+            }
+          ],
+          "text": "Ival whispers: 'Quiet wins trust here.'",
+          "next": "hall"
+        },
+        {
+          "id": "duel",
+          "label": "Duel of Strength (strength \u22653) & present scroll",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "might",
+              "min": 3
+            },
+            {
+              "type": "clueSum",
+              "prefix": "Iron_",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "ally",
+              "add": "Iron"
+            },
+            {
+              "type": "addFlag",
+              "flag": "Allies",
+              "amount": 1
+            },
+            {
+              "type": "addFlag",
+              "flag": "Allies_Iron",
+              "amount": 1
+            },
+            {
+              "type": "statGain",
+              "stat": "might",
+              "amount": 1
+            }
+          ],
+          "onFail": [
+            {
+              "type": "addFlag",
+              "flag": "Suspicion",
+              "amount": 1
+            }
+          ],
+          "oneShotKey": "iron_test",
+          "next": "depart"
+        },
+        {
+          "id": "honor_words",
+          "label": "Words of Honor (poise \u22653) & present scroll",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "charm",
+              "min": 3
+            },
+            {
+              "type": "clueSum",
+              "prefix": "Iron_",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "ally",
+              "add": "Iron"
+            },
+            {
+              "type": "addFlag",
+              "flag": "Allies",
+              "amount": 1
+            },
+            {
+              "type": "addFlag",
+              "flag": "Allies_Iron",
+              "amount": 1
+            },
+            {
+              "type": "statGain",
+              "stat": "charm",
+              "amount": 1
+            }
+          ],
+          "onFail": [
+            {
+              "type": "addFlag",
+              "flag": "Suspicion",
+              "amount": 1
+            }
+          ],
+          "oneShotKey": "iron_test",
+          "next": "depart"
+        },
+        {
+          "id": "tactics",
+          "label": "Cunning insight (keen insight \u22653) & present scroll",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 3
+            },
+            {
+              "type": "clueSum",
+              "prefix": "Iron_",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "ally",
+              "add": "Iron"
+            },
+            {
+              "type": "addFlag",
+              "flag": "Allies",
+              "amount": 1
+            },
+            {
+              "type": "addFlag",
+              "flag": "Allies_Iron",
+              "amount": 1
+            },
+            {
+              "type": "statGain",
+              "stat": "wit",
+              "amount": 1
+            }
+          ],
+          "onFail": [
+            {
+              "type": "addFlag",
+              "flag": "Suspicion",
+              "amount": 1
+            }
+          ],
+          "oneShotKey": "iron_test",
+          "next": "depart"
+        },
+        {
+          "id": "withhold",
+          "label": "Withhold the scroll (leave safely)",
+          "next": "depart"
+        }
+      ]
+    },
+    {
+      "id": "depart",
+      "title": "Casting Off",
+      "text": "Warriors watch as your ship pulls out of the cove.",
+      "choices": [
+        {
+          "id": "next_isle",
+          "label": "Choose the next isle",
+          "effects": [
+            {
+              "type": "goto",
+              "chapterId": "ch_isle_select",
+              "sceneId": "choose"
+            }
+          ]
+        },
+        {
+          "id": "home_if_ready",
+          "label": "Sail home (Convergence)",
+          "requirements": [
+            {
+              "type": "flagMin",
+              "flag": "Allies",
+              "min": 3
+            }
+          ],
+          "effects": [
+            {
+              "type": "goto",
+              "chapterId": "ch6_convergence",
+              "sceneId": "return"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

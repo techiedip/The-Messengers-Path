@@ -1,0 +1,263 @@
+{
+  "id": "ch6_convergence",
+  "title": "Convergence",
+  "scenes": [
+    {
+      "id": "return",
+      "title": "Homecoming",
+      "text": "Dawn on your own shore. Allies will stand \u2014 or not \u2014 by what you\u2019ve won.",
+      "choices": [
+        {
+          "id": "outwit4",
+          "label": "Outwit Kaelvar (keen insight \u22654)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 4
+            }
+          ],
+          "text": "You read Kaelvar’s intent and turn his own plans against him.",
+          "next": "victory_peace"
+        },
+        {
+          "id": "outwit3_whispers",
+          "label": "Outwit with Whispers aid (Wit \u22653, Whispers ally)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 3
+            },
+            {
+              "type": "flagMin",
+              "flag": "Allies_Whispers",
+              "min": 1
+            }
+          ],
+          "text": "With Whispers’ subtle guidance, you outmaneuver Kaelvar’s schemes.",
+          "next": "victory_peace"
+        },
+        {
+          "id": "persuade4",
+          "label": "Persuade Kaelvar (poise \u22654)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "charm",
+              "min": 4
+            }
+          ],
+          "text": "Your words ring with conviction, swaying even hardened hearts.",
+          "next": "victory_diplomatic"
+        },
+        {
+          "id": "persuade3_bonus",
+          "label": "Persuade with honor (Charm \u22653 & Honorable)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "charm",
+              "min": 3
+            },
+            {
+              "type": "flagMin",
+              "flag": "Honorable",
+              "min": 1
+            }
+          ],
+          "text": "You appeal to Kaelvar’s sense of honor, and he hesitates.",
+          "next": "victory_diplomatic"
+        },
+        {
+          "id": "defy4",
+          "label": "Defy in single combat (strength \u22654)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "might",
+              "min": 4
+            }
+          ],
+          "text": "You meet Kaelvar’s blade with unwavering resolve.",
+          "next": "victory_martial"
+        },
+        {
+          "id": "defy3_iron",
+          "label": "Defy with Iron at your back (Might \u22653 & Iron ally)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "might",
+              "min": 3
+            },
+            {
+              "type": "flagMin",
+              "flag": "Allies_Iron",
+              "min": 1
+            }
+          ],
+          "text": "Iron’s warriors rally to your side as you challenge Kaelvar.",
+          "next": "victory_martial"
+        },
+        {
+          "id": "bargain",
+          "label": "Bargain tribute (Coins \u22653 & Wit \u22653 or Charm \u22653)",
+          "requirements": [
+            {
+              "type": "coins",
+              "min": 3
+            },
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 3
+            }
+          ],
+          "effects": [
+            {
+              "type": "coins",
+              "delta": -3
+            }
+          ],
+          "text": "You offer tribute, and Kaelvar’s eyes gleam with calculation.",
+          "next": "victory_pragmatic"
+        },
+        {
+          "id": "bargain_ashen",
+          "label": "Bargain with Ashen backing (Coins \u22653 & Charm \u22652 & Ashen ally)",
+          "requirements": [
+            {
+              "type": "coins",
+              "min": 3
+            },
+            {
+              "type": "stat",
+              "stat": "charm",
+              "min": 2
+            },
+            {
+              "type": "flagMin",
+              "flag": "Allies_Ashen",
+              "min": 1
+            }
+          ],
+          "effects": [
+            {
+              "type": "coins",
+              "delta": -3
+            }
+          ],
+          "text": "With Ashen’s support, your offer carries unexpected weight.",
+          "next": "victory_pragmatic"
+        },
+        {
+          "id": "to_war",
+          "label": "If words fail, go to war",
+          "text": "You steel yourself for battle as diplomacy collapses.",
+          "next": "war"
+        }
+      ]
+    },
+    {
+      "id": "war",
+      "title": "The Battlefield",
+      "text": "Horns blare. Outcome hangs on your allies.",
+      "choices": [
+        {
+          "id": "war_3",
+          "label": "Stand with three allies (Allies \u22653)",
+          "requirements": [
+            {
+              "type": "flagMin",
+              "flag": "Allies",
+              "min": 3
+            }
+          ],
+          "text": "Your allies rally, banners high, as you charge together.",
+          "next": "victory_bloody"
+        },
+        {
+          "id": "war_2",
+          "label": "Stand with two allies (Allies \u22652)",
+          "requirements": [
+            {
+              "type": "flagMin",
+              "flag": "Allies",
+              "min": 2
+            }
+          ],
+          "text": "Two allies stand by you, but the odds are grim.",
+          "next": "pyrrhic"
+        },
+        {
+          "id": "war_1",
+          "label": "Stand with one ally (Allies \u22651)",
+          "requirements": [
+            {
+              "type": "flagMin",
+              "flag": "Allies",
+              "min": 1
+            }
+          ],
+          "text": "You and a lone ally brace for the onslaught.",
+          "next": "defeat_burn"
+        },
+        {
+          "id": "war_0",
+          "label": "Stand alone (no allies)",
+          "text": "You face the enemy alone, hope fading with the dawn.",
+          "next": "defeat_total"
+        }
+      ]
+    },
+    {
+      "id": "victory_peace",
+      "title": "Peaceful Victory",
+  "text": "Kaelvar withdraws, seeing the cost. Your village is saved. THE END.",
+      "choices": []
+    },
+    {
+      "id": "victory_diplomatic",
+      "title": "Diplomatic Victory",
+  "text": "Your words carry the day. Songs will remember this mercy. THE END.",
+      "choices": []
+    },
+    {
+      "id": "victory_martial",
+      "title": "Martial Victory",
+  "text": "Steel meets steel; the serpent banner retreats. THE END.",
+      "choices": []
+    },
+    {
+      "id": "victory_pragmatic",
+      "title": "Pragmatic Victory",
+  "text": "Tribute buys time. An uneasy peace, but peace nonetheless. THE END.",
+      "choices": []
+    },
+    {
+      "id": "victory_bloody",
+      "title": "Bloody Victory",
+  "text": "With three allies, you prevail \u2014 at cost. THE END.",
+      "choices": []
+    },
+    {
+      "id": "pyrrhic",
+      "title": "Pyrrhic Victory",
+  "text": "You survive with two allies, but pay dearly. THE END.",
+      "choices": []
+    },
+    {
+      "id": "defeat_burn",
+      "title": "Burned Village",
+  "text": "With one ally, the village burns. Survivors scatter. THE END.",
+      "choices": []
+    },
+    {
+      "id": "defeat_total",
+      "title": "Utter Defeat",
+  "text": "Alone against the serpent. The village falls. THE END.",
+      "choices": []
+    }
+  ]
+}

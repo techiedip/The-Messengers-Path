@@ -1,0 +1,153 @@
+{
+  "id": "prologue",
+  "title": "Prologue",
+  "scenes": [
+    {
+      "id": "square",
+      "title": "The Chief\u2019s Questions",
+      "text": "Village square under torchlight. Chief Eryndor studies you.",
+      "choices": [
+        {
+          "id": "q1_wit",
+          "label": "Danger? I study the threat (+2 Wit)",
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "wit",
+              "amount": 2
+            }
+          ],
+          "next": "q2"
+        },
+        {
+          "id": "q1_charm",
+          "label": "Danger? I talk my way out (+2 Charm)",
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "charm",
+              "amount": 2
+            }
+          ],
+          "next": "q2"
+        },
+        {
+          "id": "q1_might",
+          "label": "Danger? I endure/fight (+2 Might)",
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "might",
+              "amount": 2
+            }
+          ],
+          "next": "q2"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "title": "Burden of the Scrolls",
+      "text": "Why should it be you who carries this burden?",
+      "choices": [
+        {
+          "id": "q2_wit",
+          "label": "I see patterns (+1 Wit)",
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "wit",
+              "amount": 1
+            }
+          ],
+          "next": "q3"
+        },
+        {
+          "id": "q2_charm",
+          "label": "People trust me (+1 Charm)",
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "charm",
+              "amount": 1
+            }
+          ],
+          "next": "q3"
+        },
+        {
+          "id": "q2_might",
+          "label": "I never yield (+1 Might)",
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "might",
+              "amount": 1
+            }
+          ],
+          "next": "q3"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "title": "What Matters Most",
+      "text": "What matters most?",
+      "choices": [
+        {
+          "id": "q3_wit",
+          "label": "Knowledge (+1 Wit)",
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "wit",
+              "amount": 1
+            }
+          ],
+          "next": "sendoff"
+        },
+        {
+          "id": "q3_charm",
+          "label": "Connection (+1 Charm)",
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "charm",
+              "amount": 1
+            }
+          ],
+          "next": "sendoff"
+        },
+        {
+          "id": "q3_might",
+          "label": "Courage (+1 Might)",
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "might",
+              "amount": 1
+            }
+          ],
+          "next": "sendoff"
+        }
+      ]
+    },
+    {
+      "id": "sendoff",
+      "title": "To the Docks",
+      "text": "The Chief gives a satchel and a coin. 'Report to Captain Istra.'",
+      "choices": [
+        {
+          "id": "to_crossing",
+          "label": "Head to the docks",
+          "effects": [
+            {
+              "type": "goto",
+              "chapterId": "ch1_crossing",
+              "sceneId": "road"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

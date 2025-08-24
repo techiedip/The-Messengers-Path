@@ -1,0 +1,363 @@
+{
+  "id": "ch5_veilbreak",
+  "title": "Isle of Veilbreak",
+  "scenes": [
+    {
+      "id": "arrival_v",
+      "title": "Festival Harbor",
+      "text": "Lanterns and songs; smiles a shade too perfect.",
+      "npcs": [
+        {
+          "id": "eira",
+          "name": "Eira the Fisherwoman",
+          "desc": "broad smile, rehearsed lines"
+        },
+        {
+          "id": "magnus",
+          "name": "Magnus the Merchant",
+          "desc": "fine cloak, sweaty brow"
+        },
+        {
+          "id": "soren",
+          "name": "Soren the Drunk",
+          "desc": "reeking of wine, bloodshot eyes"
+        }
+      ],
+      "choices": [
+        {
+          "id": "observe_eira",
+          "label": "Watch Eira (keen insight \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Veilbreak_Coached",
+              "amount": 1
+            }
+          ],
+          "text": "You catch Eira glancing at the chief’s hall before she speaks.",
+          "next": "arrival_v"
+        },
+        {
+          "id": "talk_magnus",
+          "label": "Talk to Magnus (ties to power)",
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Veilbreak_TiesToConq",
+              "amount": 1
+            }
+          ],
+          "text": "Magnus wipes his brow: 'Power’s a mask, not a shield.'",
+          "next": "arrival_v"
+        },
+        {
+          "id": "magnus_bribe",
+          "label": "Grease Magnus\u2019s palm (1 coin)",
+          "requirements": [
+            {
+              "type": "coins",
+              "min": 1
+            }
+          ],
+          "effects": [
+            {
+              "type": "coins",
+              "delta": -1
+            },
+            {
+              "type": "addFlag",
+              "flag": "Veilbreak_BoughtAllegiance",
+              "amount": 1
+            }
+          ],
+          "text": "He tucks the coin away, voice dropping: 'Truth costs extra.'",
+          "next": "arrival_v"
+        },
+        {
+          "id": "charm_magnus",
+          "label": "Charm Magnus (poise \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "charm",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Veilbreak_BoughtAllegiance",
+              "amount": 1
+            }
+          ],
+          "text": "Magnus smiles, but his eyes dart to the guards.",
+          "next": "arrival_v"
+        },
+        {
+          "id": "soren_talk",
+          "label": "Talk to Soren (truths in wine)",
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Veilbreak_ServesConq",
+              "amount": 1
+            }
+          ],
+          "text": "Soren slurs: 'Wine’s the only honest tongue here.'",
+          "next": "arrival_v"
+        },
+        {
+          "id": "soren_coin",
+          "label": "Give Soren 1 coin ('leave the scroll')",
+          "requirements": [
+            {
+              "type": "coins",
+              "min": 1
+            }
+          ],
+          "effects": [
+            {
+              "type": "coins",
+              "delta": -1
+            },
+            {
+              "type": "addFlag",
+              "flag": "Veilbreak_LeaveScroll",
+              "amount": 1
+            }
+          ],
+          "text": "He grins, gold-toothed: 'A coin buys silence or a song.'",
+          "next": "arrival_v"
+        },
+        {
+          "id": "to_hall_v",
+          "label": "Proceed to the Feast Hall",
+          "next": "hall_v"
+        },
+        {
+          "id": "eira_charm",
+          "label": "Charm Eira (poise \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "charm",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Veilbreak_Coached",
+              "amount": 1
+            }
+          ],
+          "text": "Eira’s smile falters: 'Not all songs are sung for joy.'",
+          "next": "arrival_v"
+        },
+        {
+          "id": "magnus_coin",
+          "label": "Pay Magnus 1 coin for his 'truth'",
+          "requirements": [
+            {
+              "type": "coins",
+              "min": 1
+            }
+          ],
+          "effects": [
+            {
+              "type": "coins",
+              "delta": -1
+            },
+            {
+              "type": "addFlag",
+              "flag": "Veilbreak_BoughtAllegiance",
+              "amount": 1
+            }
+          ],
+          "text": "Magnus leans in: 'Truth is a dangerous trade.'",
+          "next": "arrival_v"
+        },
+        {
+          "id": "soren_wit",
+          "label": "Catch Soren\u2019s muttering (keen insight \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Veilbreak_DruggedWine",
+              "amount": 1
+            }
+          ],
+          "text": "You hear Soren mutter: 'Not all cups are safe.'",
+          "next": "arrival_v"
+        }
+      ]
+    },
+    {
+      "id": "hall_v",
+      "title": "Feast Hall",
+      "text": "Tables groan with food. Chief Hrovald smiles; his eyes do not.",
+      "npcs": [
+        {
+          "id": "alva",
+          "name": "Alva the Cupbearer",
+          "desc": "nervous hands, pours heavy wine"
+        },
+        {
+          "id": "leiknir",
+          "name": "Leiknir the Herald",
+          "desc": "booming voice, practiced grin"
+        },
+        {
+          "id": "thora",
+          "name": "Thora, Captain of Guards",
+          "desc": "arms crossed, scarred lip"
+        }
+      ],
+      "choices": [
+        {
+          "id": "observe_alva",
+          "label": "Watch Alva (keen insight \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Veilbreak_DruggedWine",
+              "amount": 1
+            }
+          ],
+          "next": "hall_v"
+        },
+        {
+          "id": "talk_leiknir",
+          "label": "Talk to Leiknir (over-praise)",
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Veilbreak_OverPraised",
+              "amount": 1
+            }
+          ],
+          "next": "hall_v"
+        },
+        {
+          "id": "charm_thora",
+          "label": "Meet Thora\u2019s stare without flinching (poise \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "charm",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Veilbreak_BetrayalConfirmed",
+              "amount": 1
+            }
+          ],
+          "next": "hall_v"
+        },
+        {
+          "id": "present_scroll",
+          "label": "Present the scroll (danger!)",
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Suspicion",
+              "amount": 1
+            }
+          ],
+          "oneShotKey": "veilbreak_trap",
+          "next": "captured_v"
+        },
+        {
+          "id": "withhold_v",
+          "label": "Withhold the scroll (leave safely)",
+          "next": "depart_v"
+        },
+        {
+          "id": "bluff_v",
+          "label": "Bluff and withdraw (Wit \u22654 or Charm \u22654)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 4
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Veilbreak_Escaped",
+              "amount": 1
+            }
+          ],
+          "next": "depart_v"
+        }
+      ]
+    },
+    {
+      "id": "captured_v",
+      "title": "Chains",
+      "text": "Guards seize you as Hrovald smiles. The mission ends in chains.",
+      "choices": []
+    },
+    {
+      "id": "depart_v",
+      "title": "Unmasked",
+      "text": "Laughter rings brittle as you return to the ship. No friends here.",
+      "choices": [
+        {
+          "id": "next_v",
+          "label": "Choose the next isle",
+          "effects": [
+            {
+              "type": "goto",
+              "chapterId": "ch_isle_select",
+              "sceneId": "choose"
+            }
+          ]
+        },
+        {
+          "id": "home_v",
+          "label": "Sail home (Convergence)",
+          "requirements": [
+            {
+              "type": "flagMin",
+              "flag": "Allies",
+              "min": 3
+            }
+          ],
+          "effects": [
+            {
+              "type": "goto",
+              "chapterId": "ch6_convergence",
+              "sceneId": "return"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

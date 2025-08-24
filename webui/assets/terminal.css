@@ -1,0 +1,26 @@
+
+:root { --bg:#0b0f14; --fg:#d8dee9; --muted:#8fbcbb; --accent:#88c0d0; --warn:#ebcb8b; --bad:#bf616a; --good:#a3be8c; }
+* { box-sizing: border-box; }
+html,body { height:100%; margin:0; }
+body { background: var(--bg); color: var(--fg); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; display:flex; align-items:center; justify-content:center; }
+#app { width: min(900px, 96vw); height: min(640px, 92vh); border: 1px solid #1f2937; border-radius: 10px; background: #0a0e13; box-shadow: 0 8px 40px rgba(0,0,0,.5); display:flex; flex-direction:column; overflow:hidden;}
+.header { padding: 10px 14px; background:#0d131a; border-bottom:1px solid #1f2937; display:flex; justify-content:space-between; align-items:center; }
+.title { color: var(--accent); font-weight:700; letter-spacing:.5px; }
+.stats { color:#c0caf5; font-size:12px; }
+.term { flex:1; padding: 14px; overflow:auto; line-height:1.6; }
+.line { white-space: pre-wrap; }
+h2 { color: var(--muted); margin: 0 0 8px 0; font-size:16px; }
+.npcs { color:#a7b7c5; margin: 6px 0 12px 0; }
+.choice { padding: 6px 8px; border-left: 2px solid #1f2937; margin: 4px 0; cursor:pointer; border-radius:6px; }
+.choice:hover { background:#0e141b; border-left-color:#203040; }
+.choice.disabled { opacity:.45; cursor:not-allowed; }
+.flash { color: var(--good); margin: 8px 0; }
+.warn { color: var(--warn); }
+.bad { color: var(--bad); }
+.input { display:flex; gap:8px; padding:10px 14px; border-top:1px solid #1f2937; background:#0d131a; }
+input[type="text"] { flex:1; padding:8px 10px; border-radius:6px; border:1px solid #1f2937; background:#0a0e13; color:var(--fg); }
+button { background:#111827; color:var(--fg); border:1px solid #1f2937; padding:8px 12px; border-radius:6px; cursor:pointer; }
+button:hover { background:#0e141b; }
+.small { font-size:12px; opacity:.8; }
+.footer { padding:6px 14px; font-size:12px; color:#8aa0b4; border-top:1px solid #1f2937; background:#0d131a; }
+kbd { background:#111827; border:1px solid #1f2937; border-radius:4px; padding:0 4px; font-size:11px; }

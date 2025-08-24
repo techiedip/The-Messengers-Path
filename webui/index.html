@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Messenger's Path — Web CLI</title>
+  <link rel="stylesheet" href="assets/terminal.css" />
+</head>
+<body>
+  <div id="app">
+    <div class="header">
+      <div class="title">THE MESSENGER'S PATH</div>
+      <div class="stats" id="stats"></div>
+    </div>
+    <div class="term" id="term" role="log" aria-live="polite"></div>
+    <div class="input">
+      <input id="cmd" type="text" placeholder="type a choice number and press Enter… (or click a choice)" />
+      <button id="enter">Enter</button>
+    </div>
+    <div class="footer small">
+      Navigate: type number <kbd>1</kbd>…<kbd>9</kbd> + <kbd>Enter</kbd> • Reset: <kbd>R</kbd> • Randomize seed: <kbd>N</kbd>
+    </div>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

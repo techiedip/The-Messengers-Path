@@ -1,0 +1,45 @@
+You are my AI pair-dev on **The Messenger’s Path**, a data-driven text adventure / choice RPG.
+
+## Repo map
+- src/model/ → Types & enums
+- src/engine/ → SceneRouter, CheckSystem, ChoiceExecutor, RNG
+- src/io/ → CLI renderer & input
+- src/content/ → JSON chapters
+- webui/ → Minimal web UI (mimics CLI, **no save/load**)
+- docs/context.md → project rules
+- docs/testing.md → CLI-only Save/Load docs
+
+## Game logic
+- Stats: Wit, Charm, Might.  
+- Coins: start 1, can gain/spend.  
+- Flags: Cultural clues (Iron_*, etc.), meta flags (Suspicion, Honorable, Greedy, Allies_*).  
+- NPCs yield **layered clues**; scroll reveal requires `clueSum(prefix) ≥ 2`.  
+- Trials: Captain’s Trial randomized.  
+- One-shot choices enforced by `oneShotKey`.  
+- Puzzle-y info (like Halric’s stanza) shown in **scene text**, not meta options.  
+- UI rules:  
+  - Show **friendly titles**, never raw ids.  
+  - “Recent” line shows stats/coins/suspicion/honor/greed — but not raw flags or knowledge.  
+- CLI-only Save/Load: `:s`, `:l`, `:q` (not present in Web UI).  
+- `SMOKE=1` auto-plays 12 steps for CI.
+
+## Tasks for you
+1. **Sanity check**: Ensure CLI (`npm run dev`) and Web UI both work.  
+2. **DX improvements**: Typecheck, lint, smoke scripts all run clean.  
+3. **Content validation**:  
+   - All trials include full narrative context.  
+   - Isle NPC clues are layered, not giveaways.  
+   - Scroll presentation gated by `clueSum ≥ 2`.  
+   - No meta labels (“decode”, “observe flag”) — only diegetic phrasing.  
+4. **Non-functional**:  
+   - Keep “Recent” concise.  
+   - No raw flags/knowledge leak to UI.  
+   - No save/load in Web UI.  
+   - CLI Save/Load works with `:s`, `:l`, `:q`.
+
+## Deliverables
+- Diagnostics summary (errors, fixes).  
+- Diffs for any fixes to content or engine.  
+- Confirmation CLI + Web UI + Smoke mode all run.  
+
+Start by scanning the repo and summarizing what you see. Then propose the minimal fixes required.

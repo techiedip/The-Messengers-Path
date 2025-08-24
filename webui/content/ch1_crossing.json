@@ -1,0 +1,493 @@
+{
+  "id": "ch1_crossing",
+  "title": "Chapter 1: The Crossing",
+  "scenes": [
+    {
+      "id": "road",
+      "title": "The Dropped Coin",
+      "text": "Misty road to the docks. A passerby drops a coin by your boot.",
+      "choices": [
+        {
+          "id": "pocket",
+          "label": "Pocket it (+1 Coin, Greedy)",
+          "effects": [
+            {
+              "type": "coins",
+              "delta": 1
+            },
+            {
+              "type": "addFlag",
+              "flag": "Greedy",
+              "amount": 1
+            }
+          ],
+          "next": "dock"
+        },
+        {
+          "id": "return",
+          "label": "Return it (Honorable)",
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Honorable",
+              "amount": 1
+            }
+          ],
+          "next": "dock"
+        },
+        {
+          "id": "ignore",
+          "label": "Ignore it",
+          "next": "dock"
+        }
+      ]
+    },
+    {
+      "id": "dock",
+      "title": "Storm Tax",
+      "text": "Ferryman Garn blocks the gangplank. 'Storm tax tonight.'",
+      "choices": [
+        {
+          "id": "pay2",
+          "label": "Pay 2 coins",
+          "requirements": [
+            {
+              "type": "coins",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "coins",
+              "delta": -2
+            }
+          ],
+          "next": "hold"
+        },
+        {
+          "id": "haggle",
+          "label": "Haggle (poise \u22652) and pay 1",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "charm",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "coins",
+              "delta": -1
+            }
+          ],
+          "next": "hold"
+        },
+        {
+          "id": "bribe1",
+          "label": "Bribe quietly (1 coin)",
+          "requirements": [
+            {
+              "type": "coins",
+              "min": 1
+            }
+          ],
+          "effects": [
+            {
+              "type": "coins",
+              "delta": -1
+            }
+          ],
+          "next": "hold"
+        },
+        {
+          "id": "sneak",
+          "label": "Try to slip aboard unseen (risky)",
+          "next": "hold"
+        },
+        {
+          "id": "leave",
+          "label": "Leave (end the mission)",
+          "effects": [
+            {
+              "type": "goto",
+              "chapterId": "ch1_crossing",
+              "sceneId": "end"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hold",
+      "title": "Below Deck",
+      "text": "Lanternlight glints on a small lockbox.",
+      "choices": [
+        {
+          "id": "force_wit",
+          "label": "Pick/solve the lock (keen insight \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "coins",
+              "delta": 1
+            }
+          ],
+          "next": "guard"
+        },
+        {
+          "id": "force_might",
+          "label": "Force it (strength \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "might",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "coins",
+              "delta": 1
+            }
+          ],
+          "next": "guard"
+        },
+        {
+          "id": "leave_it",
+          "label": "Leave it",
+          "next": "guard"
+        }
+      ]
+    },
+    {
+      "id": "guard",
+      "title": "Papers?",
+      "text": "Guard Sten blocks your path: 'Papers?'",
+      "choices": [
+        {
+          "id": "bribe",
+          "label": "Bribe him (1 coin)",
+          "requirements": [
+            {
+              "type": "coins",
+              "min": 1
+            }
+          ],
+          "effects": [
+            {
+              "type": "coins",
+              "delta": -1
+            }
+          ],
+          "next": "trial_random"
+        },
+        {
+          "id": "bluff",
+          "label": "Bluff (poise \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "charm",
+              "min": 2
+            }
+          ],
+          "next": "trial_random"
+        },
+        {
+          "id": "down",
+          "label": "Keep your head down",
+          "next": "trial_random"
+        }
+      ]
+    },
+    {
+      "id": "trial_random",
+      "title": "Captain's Trial",
+      "text": "Istra frowns. 'You'll face a trial. No picking and choosing.' He rattles a cup of lots and nods.",
+      "choices": [
+        {
+          "id": "await",
+          "label": "(The Captain draws lots\u2026)",
+          "next": "trial_random"
+        }
+      ]
+    },
+    {
+      "id": "sab_scene",
+      "title": "The Sabotage",
+      "text": "Cargo hold. Torn grain spills like sand. Four sailors line up by lanternlight. Istra: 'One lie, three truths.'\\n\\nHarl (rope-burned): 'I was above deck when it happened.'\\nBranik (narrow eyes): 'I saw Harl in the hold just before the grain was found ruined.'\\nOdran (steady): 'I was fixing ropes in the hold the whole time.'\\nTorvald (neutral): 'I saw Odran working on the ropes, true. But I never saw Harl anywhere near the deck.'\\n\\nOnly one statement is a lie.",
+      "choices": [
+        {
+          "id": "inspect_scene",
+          "label": "Examine sacks & footprints (keen insight \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Clue_ScuffsToHold",
+              "amount": 1
+            }
+          ],
+          "text": "You spot scuffed grain and a muddy print—someone lied about where they were.",
+          "next": "sab_scene"
+        },
+        {
+          "id": "accuse_harl",
+          "label": "Accuse Harl (likely wrong)",
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Suspicion",
+              "amount": 1
+            }
+          ],
+          "next": "reveal"
+        },
+        {
+          "id": "accuse_branik",
+          "label": "Accuse Branik (keen insight \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "wit",
+              "amount": 1
+            }
+          ],
+          "next": "reveal"
+        },
+        {
+          "id": "accuse_odran",
+          "label": "Accuse Odran (likely wrong)",
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Suspicion",
+              "amount": 1
+            }
+          ],
+          "next": "reveal"
+        },
+        {
+          "id": "accuse_torvald",
+          "label": "Accuse Torvald (likely wrong)",
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Suspicion",
+              "amount": 1
+            }
+          ],
+          "next": "reveal"
+        }
+      ]
+    },
+    {
+      "id": "storm_scene",
+      "title": "The Storm",
+      "text": "Storm lashes the deck; masts groan. Istra: 'Pick your post!' Reef the sail, rally the crew, or reinforce lines.",
+      "choices": [
+        {
+          "id": "climb",
+          "label": "Reef the sail (strength \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "might",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "might",
+              "amount": 1
+            }
+          ],
+          "next": "reveal"
+        },
+        {
+          "id": "rally",
+          "label": "Rally the panicked (poise \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "charm",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "charm",
+              "amount": 1
+            }
+          ],
+          "next": "reveal"
+        },
+        {
+          "id": "knots",
+          "label": "Reinforce lines with clever knots (keen insight \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "wit",
+              "amount": 1
+            }
+          ],
+          "next": "reveal"
+        }
+      ]
+    },
+    {
+      "id": "stow_scene",
+      "title": "The Stowaway",
+      "text": "A ragged boy, Leif, trembles. Istra: 'Snuck aboard at dusk. Truth or trouble?' Leif: 'I can work! I just need passage!'",
+      "choices": [
+        {
+          "id": "question_leif",
+          "label": "Question Leif for inconsistencies (keen insight \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "knowledge",
+              "add": "Leif_knows_galley"
+            },
+            {
+              "type": "addFlag",
+              "flag": "Clue_LeifHonest",
+              "amount": 1
+            }
+          ],
+          "text": "Leif’s answers are quick and true—he really does know the galley’s layout.",
+          "next": "stow_scene"
+        },
+        {
+          "id": "defend",
+          "label": "Defend him (poise \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "charm",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "charm",
+              "amount": 1
+            },
+            {
+              "type": "coins",
+              "delta": 1
+            }
+          ],
+          "next": "reveal"
+        },
+        {
+          "id": "argue",
+          "label": "Argue his usefulness (keen insight \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "wit",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "wit",
+              "amount": 1
+            },
+            {
+              "type": "knowledge",
+              "add": "tavern_keeper_knows"
+            }
+          ],
+          "next": "reveal"
+        },
+        {
+          "id": "threaten",
+          "label": "Threaten him (strength \u22652)",
+          "requirements": [
+            {
+              "type": "stat",
+              "stat": "might",
+              "min": 2
+            }
+          ],
+          "effects": [
+            {
+              "type": "statGain",
+              "stat": "might",
+              "amount": 1
+            },
+            {
+              "type": "item",
+              "op": "add",
+              "id": "StowawayToken"
+            }
+          ],
+          "next": "reveal"
+        }
+      ]
+    },
+    {
+      "id": "reveal",
+      "title": "Captain\u2019s Revelation",
+      "text": "After the trial, Istra reveals: three scrolls, four isles. He will give scrolls **one at a time** at each isle.",
+      "choices": [
+        {
+          "id": "to_select",
+          "label": "Choose your first isle",
+          "effects": [
+            {
+              "type": "goto",
+              "chapterId": "ch_isle_select",
+              "sceneId": "choose"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "end",
+      "title": "Path Not Taken",
+      "text": "You vanish into the alleys. The mission ends.",
+      "choices": []
+    }
+  ]
+}
