@@ -15,12 +15,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "dev": "tsx src/index.ts",
-    "start": "node dist/index.js",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint . --ext .ts --max-warnings 0",
-    "smoke": "npm run build && SMOKE=1 node dist/index.js"
+  "build": "tsc",
+  "dev": "tsx src/index.ts",
+  "start": "node dist/index.js",
+  "typecheck": "tsc --noEmit",
+  "lint": "eslint . --ext .ts --max-warnings 0",
+  "smoke": "npm run build && SMOKE=1 node dist/index.js",
+  "sync:web": "rm -rf webui/content && mkdir -p webui/content && cp -R src/content/* webui/content/"
   },
   "dependencies": {
     "chalk": "^5.3.0"
@@ -34,4 +35,5 @@
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"
   }
+
 }
