@@ -3,480 +3,50 @@
   "title": "Isle of Whispers",
   "scenes": [
     {
-      "id": "arrival",
+      "id": "arrival_w",
       "title": "Shrouded Streets",
       "text": "Crooked docks, veiled lanterns. Conversations halt as you pass.",
       "npcs": [
-        {
-          "id": "inga",
-          "name": "Inga the Flower-Seller",
-          "desc": "plain dress, eyes darting"
-        },
-        {
-          "id": "kjell",
-          "name": "Kjell the Tavern-Keeper",
-          "desc": "stout, greasy apron"
-        },
-        {
-          "id": "solveig",
-          "name": "Solveig the Beggar",
-          "desc": "blind eyes, knowing smile"
-        }
+        { "id": "inga", "name": "Inga the Flower-Seller", "desc": "plain dress, eyes darting" },
+        { "id": "kjell", "name": "Kjell the Tavern-Keeper", "desc": "stout, greasy apron" },
+        { "id": "solveig", "name": "Solveig the Beggar", "desc": "blind eyes, knowing smile" }
       ],
       "choices": [
-        {
-          "id": "talk_inga",
-          "label": "Talk to Inga (paranoia)",
-          "effects": [
-            {
-              "type": "addFlag",
-              "flag": "Whispers_ParanoidChief",
-              "amount": 1
-            }
-          ],
-          "text": "Inga glances over her shoulder, voice barely above a whisper: 'Not safe to speak here.'",
-          "next": "arrival"
-        },
-        {
-          "id": "inga_coax",
-          "label": "Coax Inga to speak plainly (poise \u22652)",
-          "requirements": [
-            {
-              "type": "stat",
-              "stat": "charm",
-              "min": 2
-            }
-          ],
-          "effects": [
-            {
-              "type": "addFlag",
-              "flag": "Whispers_AdvisorsTwist",
-              "amount": 1
-            }
-          ],
-          "text": "She hesitates, then mutters: 'The chief’s advisors twist every tale.'",
-          "next": "arrival"
-        },
-        {
-          "id": "observe_inga",
-          "label": "Watch Inga (keen insight \u22652)",
-          "requirements": [
-            {
-              "type": "stat",
-              "stat": "wit",
-              "min": 2
-            }
-          ],
-          "effects": [
-            {
-              "type": "addFlag",
-              "flag": "Whispers_CoachedVillagers",
-              "amount": 1
-            }
-          ],
-          "text": "You catch Inga glancing at the scribe’s window—she’s being watched, and coached.",
-          "next": "arrival"
-        },
-        {
-          "id": "kjell_charm",
-          "label": "Buy a drink; talk to Kjell (poise \u22652)",
-          "requirements": [
-            {
-              "type": "stat",
-              "stat": "charm",
-              "min": 2
-            }
-          ],
-          "effects": [
-            {
-              "type": "addFlag",
-              "flag": "Whispers_HatesFlattery",
-              "amount": 1
-            }
-          ],
-          "text": "Kjell grunts, unimpressed: 'Words are cheap. Silver talks.'",
-          "next": "arrival"
-        },
-        {
-          "id": "kjell_listen",
-          "label": "Eavesdrop (keen insight \u22652)",
-          "requirements": [
-            {
-              "type": "stat",
-              "stat": "wit",
-              "min": 2
-            }
-          ],
-          "effects": [
-            {
-              "type": "addFlag",
-              "flag": "Whispers_ConqSilver",
-              "amount": 1
-            }
-          ],
-          "text": "You catch a muttered phrase: 'Conqueror’s silver stains every hand.'",
-          "next": "arrival"
-        },
-        {
-          "id": "solveig_coin",
-          "label": "Give Solveig 1 coin (loyal chief, bad court)",
-          "requirements": [
-            {
-              "type": "coins",
-              "min": 1
-            }
-          ],
-          "effects": [
-            {
-              "type": "coins",
-              "delta": -1
-            },
-            {
-              "type": "addFlag",
-              "flag": "Whispers_ChiefLoyalAdvisorsNot",
-              "amount": 1
-            }
-          ],
-          "text": "Solveig’s blind eyes fix on you: 'Loyalty’s a curse in this hall.'",
-          "next": "arrival"
-        },
-        {
-          "id": "to_hall",
-          "label": "Proceed to the Chief's Hall",
-          "next": "hall"
-        },
-        {
-          "id": "inga_charm",
-          "label": "Coax Inga (poise \u22652)",
-          "requirements": [
-            {
-              "type": "stat",
-              "stat": "charm",
-              "min": 2
-            }
-          ],
-          "effects": [
-            {
-              "type": "addFlag",
-              "flag": "Whispers_AdvisorsTwist",
-              "amount": 1
-            }
-          ],
-          "next": "arrival"
-        },
-        {
-          "id": "kjell_wit",
-          "label": "Listen closely to Kjell\u2019s rehearsed lines (keen insight \u22652)",
-          "requirements": [
-            {
-              "type": "stat",
-              "stat": "wit",
-              "min": 2
-            }
-          ],
-          "effects": [
-            {
-              "type": "addFlag",
-              "flag": "Whispers_CoachedVillagers",
-              "amount": 1
-            }
-          ],
-          "next": "arrival"
-        },
-        {
-          "id": "solveig_coin2",
-          "label": "Press Solveig with a second coin",
-          "requirements": [
-            {
-              "type": "coins",
-              "min": 1
-            }
-          ],
-          "effects": [
-            {
-              "type": "coins",
-              "delta": -1
-            },
-            {
-              "type": "addFlag",
-              "flag": "Whispers_PrefersClarity",
-              "amount": 1
-            }
-          ],
-          "next": "arrival"
-        },
-        {
-          "id": "solveig_truth",
-          "label": "Ask Solveig how to be heard (keen insight \u22652)",
-          "requirements": [
-            {
-              "type": "stat",
-              "stat": "wit",
-              "min": 2
-            }
-          ],
-          "effects": [
-            {
-              "type": "addFlag",
-              "flag": "Whispers_PrefersClarity",
-              "amount": 1
-            }
-          ],
-          "next": "arrival"
-        }
+  { "id": "talk_inga_w", "label": "Talk to Inga (paranoia)", "effects": [ { "type": "addFlag", "flag": "Whispers_ParanoidChief", "amount": 1 } ], "text": "Inga glances over her shoulder, voice barely above a whisper: 'Not safe to speak here.'", "next": "arrival_w" },
+  { "id": "inga_coax_w", "label": "Coax Inga to speak plainly (poise ≥2)", "requirements": [ { "type": "stat", "stat": "charm", "min": 2 } ], "effects": [ { "type": "addFlag", "flag": "Whispers_AdvisorsTwist", "amount": 1 } ], "text": "She hesitates, then mutters: 'The chief’s advisors twist every tale.'", "next": "arrival_w" },
+  { "id": "observe_inga_w", "label": "Watch Inga (keen insight ≥2)", "requirements": [ { "type": "stat", "stat": "wit", "min": 2 } ], "effects": [ { "type": "addFlag", "flag": "Whispers_CoachedVillagers", "amount": 1 } ], "text": "You notice her eyes flick to the scribe’s window before she answers.", "next": "arrival_w" },
+  { "id": "kjell_charm_w", "label": "Buy a drink; talk to Kjell (poise ≥2)", "requirements": [ { "type": "stat", "stat": "charm", "min": 2 } ], "effects": [ { "type": "addFlag", "flag": "Whispers_HatesFlattery", "amount": 1 } ], "text": "Kjell grunts, unimpressed: 'Words are cheap. Silver talks.'", "next": "arrival_w" },
+  { "id": "kjell_listen_w", "label": "Eavesdrop (keen insight ≥2)", "requirements": [ { "type": "stat", "stat": "wit", "min": 2 } ], "effects": [ { "type": "addFlag", "flag": "Whispers_ConqSilver", "amount": 1 } ], "text": "You catch a muttered phrase: 'Conqueror’s silver stains every hand.'", "next": "arrival_w" },
+  { "id": "solveig_coin_w", "label": "Give Solveig 1 coin (loyal chief, bad court)", "requirements": [ { "type": "coins", "min": 1 } ], "effects": [ { "type": "coins", "delta": -1 }, { "type": "addFlag", "flag": "Whispers_ChiefLoyalAdvisorsNot", "amount": 1 } ], "text": "Solveig’s blind eyes fix on you: 'Loyalty’s a curse in this hall.'", "next": "arrival_w" },
+        { "id": "to_hall_w", "label": "Proceed to the Chief's Hall", "next": "hall_w" }
       ]
     },
     {
-      "id": "hall",
+      "id": "hall_w",
       "title": "Hall of Whispers",
-      "text": "Hushed chamber; tapestries swallow sound. Chief Ulfrik\u2019s gaze is knife-sharp.",
+      "text": "Hushed chamber; tapestries swallow sound. Chief Ulfrik’s gaze is knife-sharp.",
       "npcs": [
-        {
-          "id": "ragnhild",
-          "name": "Ragnhild the Scribe",
-          "desc": "pale, ink-stained fingers"
-        },
-        {
-          "id": "eirik",
-          "name": "Eirik the Guard-Captain",
-          "desc": "tall, polished armor"
-        },
-        {
-          "id": "freydis",
-          "name": "Freydis the Courtier",
-          "desc": "jeweled cloak, too-wide smile"
-        }
+        { "id": "ragnhild", "name": "Ragnhild the Scribe", "desc": "pale, ink-stained fingers" },
+        { "id": "eirik", "name": "Eirik the Guard-Captain", "desc": "tall, polished armor" },
+        { "id": "freydis", "name": "Freydis the Courtier", "desc": "jeweled cloak, too-wide smile" }
       ],
       "choices": [
-        {
-          "id": "observe_ragnhild",
-          "label": "Watch the Scribe (keen insight \u22652)",
-          "requirements": [
-            {
-              "type": "stat",
-              "stat": "wit",
-              "min": 2
-            }
-          ],
-          "effects": [
-            {
-              "type": "addFlag",
-              "flag": "Whispers_AdvisorsTwist",
-              "amount": 1
-            }
-          ],
-          "next": "hall"
-        },
-        {
-          "id": "talk_eirik",
-          "label": "Talk to the Guard-Captain (clarity)",
-          "effects": [
-            {
-              "type": "addFlag",
-              "flag": "Whispers_PrefersClarity",
-              "amount": 1
-            }
-          ],
-          "next": "hall"
-        },
-        {
-          "id": "charm_freydis",
-          "label": "Trade barbs with the Courtier (poise \u22652)",
-          "requirements": [
-            {
-              "type": "stat",
-              "stat": "charm",
-              "min": 2
-            }
-          ],
-          "effects": [
-            {
-              "type": "addFlag",
-              "flag": "Whispers_NoblesConq",
-              "amount": 1
-            }
-          ],
-          "next": "hall"
-        },
-        {
-          "id": "wit_test",
-          "label": "Call out a lie (keen insight \u22653) & present scroll",
-          "requirements": [
-            {
-              "type": "stat",
-              "stat": "wit",
-              "min": 3
-            },
-            {
-              "type": "clueSum",
-              "prefix": "Whispers_",
-              "min": 2
-            }
-          ],
-          "effects": [
-            {
-              "type": "ally",
-              "add": "Whispers"
-            },
-            {
-              "type": "addFlag",
-              "flag": "Allies",
-              "amount": 1
-            },
-            {
-              "type": "addFlag",
-              "flag": "Allies_Whispers",
-              "amount": 1
-            },
-            {
-              "type": "statGain",
-              "stat": "wit",
-              "amount": 1
-            }
-          ],
-          "onFail": [
-            {
-              "type": "addFlag",
-              "flag": "Suspicion",
-              "amount": 1
-            }
-          ],
-          "oneShotKey": "whispers_test",
-          "next": "depart"
-        },
-        {
-          "id": "charm_test",
-          "label": "Win trust (poise \u22653) & present scroll",
-          "requirements": [
-            {
-              "type": "stat",
-              "stat": "charm",
-              "min": 3
-            },
-            {
-              "type": "clueSum",
-              "prefix": "Whispers_",
-              "min": 2
-            }
-          ],
-          "effects": [
-            {
-              "type": "ally",
-              "add": "Whispers"
-            },
-            {
-              "type": "addFlag",
-              "flag": "Allies",
-              "amount": 1
-            },
-            {
-              "type": "addFlag",
-              "flag": "Allies_Whispers",
-              "amount": 1
-            },
-            {
-              "type": "statGain",
-              "stat": "charm",
-              "amount": 1
-            }
-          ],
-          "onFail": [
-            {
-              "type": "addFlag",
-              "flag": "Suspicion",
-              "amount": 1
-            }
-          ],
-          "oneShotKey": "whispers_test",
-          "next": "depart"
-        },
-        {
-          "id": "might_test",
-          "label": "Intimidate the court (strength \u22653) & present scroll",
-          "requirements": [
-            {
-              "type": "stat",
-              "stat": "might",
-              "min": 3
-            },
-            {
-              "type": "clueSum",
-              "prefix": "Whispers_",
-              "min": 2
-            }
-          ],
-          "effects": [
-            {
-              "type": "ally",
-              "add": "Whispers"
-            },
-            {
-              "type": "addFlag",
-              "flag": "Allies",
-              "amount": 1
-            },
-            {
-              "type": "addFlag",
-              "flag": "Allies_Whispers",
-              "amount": 1
-            },
-            {
-              "type": "statGain",
-              "stat": "might",
-              "amount": 1
-            }
-          ],
-          "onFail": [
-            {
-              "type": "addFlag",
-              "flag": "Suspicion",
-              "amount": 1
-            }
-          ],
-          "oneShotKey": "whispers_test",
-          "next": "depart"
-        },
-        {
-          "id": "withhold",
-          "label": "Withhold the scroll (leave safely)",
-          "next": "depart"
-        }
+        { "id": "observe_ragnhild", "label": "Watch the Scribe (keen insight ≥2)", "requirements": [ { "type": "stat", "stat": "wit", "min": 2 } ], "effects": [ { "type": "addFlag", "flag": "Whispers_AdvisorsTwist", "amount": 1 } ], "next": "hall_w" },
+        { "id": "talk_eirik", "label": "Talk to the Guard-Captain (clarity)", "effects": [ { "type": "addFlag", "flag": "Whispers_PrefersClarity", "amount": 1 } ], "next": "hall_w" },
+        { "id": "charm_freydis", "label": "Trade barbs with the Courtier (poise ≥2)", "requirements": [ { "type": "stat", "stat": "charm", "min": 2 } ], "effects": [ { "type": "addFlag", "flag": "Whispers_NoblesConq", "amount": 1 } ], "next": "hall_w" },
+        { "id": "wit_test", "label": "Call out a lie (keen insight ≥3) & present scroll", "requirements": [ { "type": "stat", "stat": "wit", "min": 3 }, { "type": "clueSum", "prefix": "Whispers_", "min": 2 } ], "effects": [ { "type": "ally", "add": "Whispers" }, { "type": "addFlag", "flag": "Allies", "amount": 1 }, { "type": "addFlag", "flag": "Allies_Whispers", "amount": 1 }, { "type": "statGain", "stat": "wit", "amount": 1 } ], "onFail": [ { "type": "addFlag", "flag": "Suspicion", "amount": 1 } ], "oneShotKey": "whispers_test", "next": "depart_w" },
+        { "id": "charm_test", "label": "Win trust (poise ≥3) & present scroll", "requirements": [ { "type": "stat", "stat": "charm", "min": 3 }, { "type": "clueSum", "prefix": "Whispers_", "min": 2 } ], "effects": [ { "type": "ally", "add": "Whispers" }, { "type": "addFlag", "flag": "Allies", "amount": 1 }, { "type": "addFlag", "flag": "Allies_Whispers", "amount": 1 }, { "type": "statGain", "stat": "charm", "amount": 1 } ], "onFail": [ { "type": "addFlag", "flag": "Suspicion", "amount": 1 } ], "oneShotKey": "whispers_test", "next": "depart_w" },
+        { "id": "might_test", "label": "Intimidate the court (strength ≥3) & present scroll", "requirements": [ { "type": "stat", "stat": "might", "min": 3 }, { "type": "clueSum", "prefix": "Whispers_", "min": 2 } ], "effects": [ { "type": "ally", "add": "Whispers" }, { "type": "addFlag", "flag": "Allies", "amount": 1 }, { "type": "addFlag", "flag": "Allies_Whispers", "amount": 1 }, { "type": "statGain", "stat": "might", "amount": 1 } ], "onFail": [ { "type": "addFlag", "flag": "Suspicion", "amount": 1 } ], "oneShotKey": "whispers_test", "next": "depart_w" },
+        { "id": "withhold_w", "label": "Withhold the scroll (leave safely)", "next": "depart_w" }
       ]
     },
     {
-      "id": "depart",
+      "id": "depart_w",
       "title": "Into the Mist",
       "text": "The streets watch you as you return to the pier.",
       "choices": [
-        {
-          "id": "next",
-          "label": "Choose the next isle",
-          "effects": [
-            {
-              "type": "goto",
-              "chapterId": "ch_isle_select",
-              "sceneId": "choose"
-            }
-          ]
-        },
-        {
-          "id": "home",
-          "label": "Sail home (Convergence)",
-          "requirements": [
-            {
-              "type": "flagMin",
-              "flag": "Allies",
-              "min": 3
-            }
-          ],
-          "effects": [
-            {
-              "type": "goto",
-              "chapterId": "ch6_convergence",
-              "sceneId": "return"
-            }
-          ]
-        }
+        { "id": "next_w", "label": "Choose the next isle", "effects": [ { "type": "goto", "chapterId": "ch_isle_select", "sceneId": "choose" } ] },
+        { "id": "home_w", "label": "Sail home (Convergence)", "requirements": [ { "type": "flagMin", "flag": "Allies", "min": 3 } ], "effects": [ { "type": "goto", "chapterId": "ch6_convergence", "sceneId": "return" } ] }
       ]
     }
   ]

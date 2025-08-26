@@ -21,6 +21,7 @@
               "amount": 1
             }
           ],
+          "text": "The coin disappears into your pouch with practiced ease.",
           "next": "dock"
         },
         {
@@ -144,6 +145,7 @@
               "delta": 1
             }
           ],
+          "text": "Your fingers work the mechanism until it clicks open—a few coins inside.",
           "next": "guard"
         },
         {
@@ -162,11 +164,13 @@
               "delta": 1
             }
           ],
+          "text": "The lockbox breaks open with a satisfying crack, revealing coins.",
           "next": "guard"
         },
         {
           "id": "leave_it",
           "label": "Leave it",
+          "text": "Best not to risk discovery over a few coins.",
           "next": "guard"
         }
       ]
@@ -191,6 +195,7 @@
               "delta": -1
             }
           ],
+          "text": "Sten's eyes narrow, but the coin disappears into his pocket.",
           "next": "trial_random"
         },
         {
@@ -203,11 +208,13 @@
               "min": 2
             }
           ],
+          "text": "You flash a confident smile and stride past before he can object.",
           "next": "trial_random"
         },
         {
           "id": "down",
           "label": "Keep your head down",
+          "text": "You avert your gaze and slip past in the crowd.",
           "next": "trial_random"
         }
       ]
@@ -246,6 +253,7 @@
               "amount": 1
             }
           ],
+          "text": "You spot scuff marks leading away from the scene—important evidence.",
           "next": "sab_scene"
         },
         {
@@ -258,6 +266,7 @@
               "amount": 1
             }
           ],
+          "text": "Harl protests his innocence, but doubt clouds Istra's face.",
           "next": "reveal"
         },
         {
@@ -277,6 +286,7 @@
               "amount": 1
             }
           ],
+          "text": "Branik's story crumbles under scrutiny—you've found the saboteur.",
           "next": "reveal"
         },
         {

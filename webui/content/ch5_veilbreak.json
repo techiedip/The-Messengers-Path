@@ -3,7 +3,7 @@
   "title": "Isle of Veilbreak",
   "scenes": [
     {
-      "id": "arrival",
+      "id": "arrival_v",
       "title": "Festival Harbor",
       "text": "Lanterns and songs; smiles a shade too perfect.",
       "npcs": [
@@ -25,39 +25,6 @@
       ],
       "choices": [
         {
-          "id": "talk_eira",
-          "label": "Talk to Eira (rehearsed praise)",
-          "effects": [
-            {
-              "type": "addFlag",
-              "flag": "Veilbreak_Rehearsed",
-              "amount": 1
-            }
-          ],
-          "text": "Eira beams: 'The chief's feast is for all! ...Or so they say.'",
-          "next": "arrival"
-        },
-        {
-          "id": "eira_coax",
-          "label": "Compliment Eira until she slips (poise \u22652)",
-          "requirements": [
-            {
-              "type": "stat",
-              "stat": "charm",
-              "min": 2
-            }
-          ],
-          "effects": [
-            {
-              "type": "addFlag",
-              "flag": "Veilbreak_Coached",
-              "amount": 1
-            }
-          ],
-          "text": "Eira's smile falters: 'Not all songs are sung for joy.'",
-          "next": "arrival"
-        },
-        {
           "id": "observe_eira",
           "label": "Watch Eira (keen insight \u22652)",
           "requirements": [
@@ -75,7 +42,7 @@
             }
           ],
           "text": "You catch Eira glancing at the chief’s hall before she speaks.",
-          "next": "arrival"
+          "next": "arrival_v"
         },
         {
           "id": "talk_magnus",
@@ -88,7 +55,7 @@
             }
           ],
           "text": "Magnus wipes his brow: 'Power’s a mask, not a shield.'",
-          "next": "arrival"
+          "next": "arrival_v"
         },
         {
           "id": "magnus_bribe",
@@ -111,7 +78,7 @@
             }
           ],
           "text": "He tucks the coin away, voice dropping: 'Truth costs extra.'",
-          "next": "arrival"
+          "next": "arrival_v"
         },
         {
           "id": "charm_magnus",
@@ -131,7 +98,7 @@
             }
           ],
           "text": "Magnus smiles, but his eyes dart to the guards.",
-          "next": "arrival"
+          "next": "arrival_v"
         },
         {
           "id": "soren_talk",
@@ -144,7 +111,7 @@
             }
           ],
           "text": "Soren slurs: 'Wine’s the only honest tongue here.'",
-          "next": "arrival"
+          "next": "arrival_v"
         },
         {
           "id": "soren_coin",
@@ -167,12 +134,12 @@
             }
           ],
           "text": "He grins, gold-toothed: 'A coin buys silence or a song.'",
-          "next": "arrival"
+          "next": "arrival_v"
         },
         {
-          "id": "to_hall",
+          "id": "to_hall_v",
           "label": "Proceed to the Feast Hall",
-          "next": "hall"
+          "next": "hall_v"
         },
         {
           "id": "eira_charm",
@@ -192,7 +159,7 @@
             }
           ],
           "text": "Eira’s smile falters: 'Not all songs are sung for joy.'",
-          "next": "arrival"
+          "next": "arrival_v"
         },
         {
           "id": "magnus_coin",
@@ -215,7 +182,7 @@
             }
           ],
           "text": "Magnus leans in: 'Truth is a dangerous trade.'",
-          "next": "arrival"
+          "next": "arrival_v"
         },
         {
           "id": "soren_wit",
@@ -235,12 +202,12 @@
             }
           ],
           "text": "You hear Soren mutter: 'Not all cups are safe.'",
-          "next": "arrival"
+          "next": "arrival_v"
         }
       ]
     },
     {
-      "id": "hall",
+      "id": "hall_v",
       "title": "Feast Hall",
       "text": "Tables groan with food. Chief Hrovald smiles; his eyes do not.",
       "npcs": [
@@ -278,7 +245,7 @@
               "amount": 1
             }
           ],
-          "next": "hall"
+          "next": "hall_v"
         },
         {
           "id": "talk_leiknir",
@@ -290,7 +257,7 @@
               "amount": 1
             }
           ],
-          "next": "hall"
+          "next": "hall_v"
         },
         {
           "id": "charm_thora",
@@ -309,7 +276,7 @@
               "amount": 1
             }
           ],
-          "next": "hall"
+          "next": "hall_v"
         },
         {
           "id": "present_scroll",
@@ -322,15 +289,15 @@
             }
           ],
           "oneShotKey": "veilbreak_trap",
-          "next": "captured"
+          "next": "captured_v"
         },
         {
-          "id": "withhold",
+          "id": "withhold_v",
           "label": "Withhold the scroll (leave safely)",
-          "next": "depart"
+          "next": "depart_v"
         },
         {
-          "id": "bluff",
+          "id": "bluff_v",
           "label": "Bluff and withdraw (Wit \u22654 or Charm \u22654)",
           "requirements": [
             {
@@ -346,23 +313,23 @@
               "amount": 1
             }
           ],
-          "next": "depart"
+          "next": "depart_v"
         }
       ]
     },
     {
-      "id": "captured",
+      "id": "captured_v",
       "title": "Chains",
       "text": "Guards seize you as Hrovald smiles. The mission ends in chains.",
       "choices": []
     },
     {
-      "id": "depart",
+      "id": "depart_v",
       "title": "Unmasked",
       "text": "Laughter rings brittle as you return to the ship. No friends here.",
       "choices": [
         {
-          "id": "next",
+          "id": "next_v",
           "label": "Choose the next isle",
           "effects": [
             {
@@ -373,7 +340,7 @@
           ]
         },
         {
-          "id": "home",
+          "id": "home_v",
           "label": "Sail home (Convergence)",
           "requirements": [
             {

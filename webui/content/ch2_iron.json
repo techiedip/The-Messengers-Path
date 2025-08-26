@@ -206,7 +206,7 @@
     {
       "id": "training",
       "title": "Training Grounds",
-      "text": "Rings of sparring, steel ringing. Children wrestle, elders sharpen blades.",
+      "text": "Rings of sparring, steel ringing. Children wrestle, elders sharpen blades.\\n\\nHalric hums a verse under his breath:\\n\u201cSteel rings true when boasts fall flat;\\n  A single deed will speak for ten.\\n  Beware the hand that buys applause\u2014\\n  It claps alone, and not again.\u201d",
       "npcs": [
         {
           "id": "kara",
@@ -235,6 +235,7 @@
               "amount": 1
             }
           ],
+          "text": "Kara grins, fists raised: 'Every scar’s a lesson.'",
           "next": "training"
         },
         {
@@ -254,7 +255,7 @@
               "amount": 1
             }
           ],
-          "text": "You notice Kara’s moves—direct, no wasted effort. She values honesty in a fight.",
+          "text": "You catch her eyes—steady, unblinking, eager for the next bout.",
           "next": "training"
         },
         {
@@ -306,7 +307,7 @@
               "amount": 1
             }
           ],
-          "text": "Vorn nods approvingly: 'You see the heart beneath the steel.'",
+          "text": "Vorn’s flint-dry voice: 'Courage first, then cleverness.'",
           "next": "training"
         },
         {
@@ -333,6 +334,7 @@
               "amount": 1
             }
           ],
+          "text": "He nods: 'Plain words, plain steel.'",
           "next": "training"
         },
         {
@@ -350,25 +352,7 @@
               "amount": 1
             }
           ],
-          "next": "training"
-        },
-        {
-          "id": "halric_decode",
-          "label": "Ponder Halric\u2019s stanza (keen insight \u22652)",
-          "requirements": [
-            {
-              "type": "stat",
-              "stat": "wit",
-              "min": 2
-            }
-          ],
-          "effects": [
-            {
-              "type": "addFlag",
-              "flag": "Iron_BoredByBoast",
-              "amount": 1
-            }
-          ],
+          "text": "Halric’s song: 'A single deed will speak for ten.'",
           "next": "training"
         },
         {
@@ -378,7 +362,7 @@
         },
         {
           "id": "halric_wit",
-          "label": "Ponder Halric\u2019s verse (keen insight \u22652)",
+          "label": "Ponder Halric’s verse (keen insight \u22652)",
           "requirements": [
             {
               "type": "stat",
@@ -393,6 +377,7 @@
               "amount": 1
             }
           ],
+          "text": "You catch a hidden warning in his rhyme about conquerors.",
           "next": "training"
         }
       ]
@@ -400,7 +385,7 @@
     {
       "id": "hall",
       "title": "The Great Hall",
-      "text": "Banners and antlers; Brynjar\u2019s one good eye weighs you. Deeds over words.",
+      "text": "Banners and antlers; Brynjar’s one good eye weighs you. Deeds over words.",
       "npcs": [
         {
           "id": "ulf",
@@ -429,11 +414,12 @@
               "amount": 1
             }
           ],
+          "text": "Ulf’s reply is a nod and a grunt—words are wasted here.",
           "next": "hall"
         },
         {
           "id": "sound_runa",
-          "label": "Study Runa\u2019s cadence (keen insight \u22652)",
+          "label": "Study Runa’s cadence (keen insight \u22652)",
           "requirements": [
             {
               "type": "stat",
@@ -448,6 +434,7 @@
               "amount": 1
             }
           ],
+          "text": "Runa’s eyes flick to the banners: 'Boasts fade, deeds remain.'",
           "next": "hall"
         },
         {
@@ -467,6 +454,7 @@
               "amount": 1
             }
           ],
+          "text": "Ival whispers: 'Quiet wins trust here.'",
           "next": "hall"
         },
         {

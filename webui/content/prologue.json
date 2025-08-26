@@ -17,6 +17,7 @@
               "amount": 2
             }
           ],
+          "text": "Eryndor nods: 'A sharp mind sees what others miss.'",
           "next": "q2"
         },
         {
@@ -29,6 +30,7 @@
               "amount": 2
             }
           ],
+          "text": "He smiles: 'Words can turn a blade aside.'",
           "next": "q2"
         },
         {
@@ -41,6 +43,7 @@
               "amount": 2
             }
           ],
+          "text": "Eryndor’s gaze hardens: 'Strength is its own answer.'",
           "next": "q2"
         }
       ]
@@ -95,7 +98,7 @@
       "choices": [
         {
           "id": "q3_wit",
-          "label": "Knowledge (+1 Wit)",
+          "label": "Seek understanding",
           "effects": [
             {
               "type": "statGain",

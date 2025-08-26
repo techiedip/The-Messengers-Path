@@ -25,7 +25,7 @@
             {
               "type": "goto",
               "chapterId": "ch3_whispers",
-              "sceneId": "arrival"
+              "sceneId": "arrival_w"
             }
           ]
         },
@@ -36,7 +36,7 @@
             {
               "type": "goto",
               "chapterId": "ch4_ashen",
-              "sceneId": "arrival"
+              "sceneId": "arrival_a"
             }
           ]
         },
@@ -47,7 +47,7 @@
             {
               "type": "goto",
               "chapterId": "ch5_veilbreak",
-              "sceneId": "arrival"
+              "sceneId": "arrival_v"
             }
           ]
         },

@@ -17,7 +17,6 @@
               "min": 4
             }
           ],
-          "text": "You read Kaelvar’s intent and turn his own plans against him.",
           "next": "victory_peace"
         },
         {
@@ -35,7 +34,6 @@
               "min": 1
             }
           ],
-          "text": "With Whispers’ subtle guidance, you outmaneuver Kaelvar’s schemes.",
           "next": "victory_peace"
         },
         {
@@ -48,7 +46,6 @@
               "min": 4
             }
           ],
-          "text": "Your words ring with conviction, swaying even hardened hearts.",
           "next": "victory_diplomatic"
         },
         {
@@ -66,7 +63,6 @@
               "min": 1
             }
           ],
-          "text": "You appeal to Kaelvar’s sense of honor, and he hesitates.",
           "next": "victory_diplomatic"
         },
         {
@@ -79,7 +75,6 @@
               "min": 4
             }
           ],
-          "text": "You meet Kaelvar’s blade with unwavering resolve.",
           "next": "victory_martial"
         },
         {
@@ -97,7 +92,6 @@
               "min": 1
             }
           ],
-          "text": "Iron’s warriors rally to your side as you challenge Kaelvar.",
           "next": "victory_martial"
         },
         {
@@ -120,7 +114,6 @@
               "delta": -3
             }
           ],
-          "text": "You offer tribute, and Kaelvar’s eyes gleam with calculation.",
           "next": "victory_pragmatic"
         },
         {
@@ -148,13 +141,11 @@
               "delta": -3
             }
           ],
-          "text": "With Ashen’s support, your offer carries unexpected weight.",
           "next": "victory_pragmatic"
         },
         {
           "id": "to_war",
           "label": "If words fail, go to war",
-          "text": "You steel yourself for battle as diplomacy collapses.",
           "next": "war"
         }
       ]
@@ -174,7 +165,6 @@
               "min": 3
             }
           ],
-          "text": "Your allies rally, banners high, as you charge together.",
           "next": "victory_bloody"
         },
         {
@@ -187,7 +177,6 @@
               "min": 2
             }
           ],
-          "text": "Two allies stand by you, but the odds are grim.",
           "next": "pyrrhic"
         },
         {
@@ -200,13 +189,11 @@
               "min": 1
             }
           ],
-          "text": "You and a lone ally brace for the onslaught.",
           "next": "defeat_burn"
         },
         {
           "id": "war_0",
           "label": "Stand alone (no allies)",
-          "text": "You face the enemy alone, hope fading with the dawn.",
           "next": "defeat_total"
         }
       ]
@@ -214,49 +201,49 @@
     {
       "id": "victory_peace",
       "title": "Peaceful Victory",
-  "text": "Kaelvar withdraws, seeing the cost. Your village is saved. THE END.",
+      "text": "Kaelvar withdraws, seeing the cost. Your village is saved.",
       "choices": []
     },
     {
       "id": "victory_diplomatic",
       "title": "Diplomatic Victory",
-  "text": "Your words carry the day. Songs will remember this mercy. THE END.",
+      "text": "Your words carry the day. Songs will remember this mercy.",
       "choices": []
     },
     {
       "id": "victory_martial",
       "title": "Martial Victory",
-  "text": "Steel meets steel; the serpent banner retreats. THE END.",
+      "text": "Steel meets steel; the serpent banner retreats.",
       "choices": []
     },
     {
       "id": "victory_pragmatic",
       "title": "Pragmatic Victory",
-  "text": "Tribute buys time. An uneasy peace, but peace nonetheless. THE END.",
+      "text": "Tribute buys time. An uneasy peace, but peace nonetheless.",
       "choices": []
     },
     {
       "id": "victory_bloody",
       "title": "Bloody Victory",
-  "text": "With three allies, you prevail \u2014 at cost. THE END.",
+      "text": "With three allies, you prevail \u2014 at cost.",
       "choices": []
     },
     {
       "id": "pyrrhic",
       "title": "Pyrrhic Victory",
-  "text": "You survive with two allies, but pay dearly. THE END.",
+      "text": "You survive with two allies, but pay dearly.",
       "choices": []
     },
     {
       "id": "defeat_burn",
       "title": "Burned Village",
-  "text": "With one ally, the village burns. Survivors scatter. THE END.",
+      "text": "With one ally, the village burns. Survivors scatter.",
       "choices": []
     },
     {
       "id": "defeat_total",
       "title": "Utter Defeat",
-  "text": "Alone against the serpent. The village falls. THE END.",
+      "text": "Alone against the serpent. The village falls.",
       "choices": []
     }
   ]

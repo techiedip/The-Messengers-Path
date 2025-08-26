@@ -78,11 +78,11 @@ function applyEffect(e){
       break;
     case 'addFlag':
       state.flags[e.flag]=(state.flags[e.flag]??0)+e.amount;
+      // Only surface certain meta flags; culture and ally flags stay narrative-only
       if (e.flag==='Suspicion') state.lastLog.push(`Suspicion +${e.amount}`);
       else if (e.flag==='Honorable') state.lastLog.push(`Honor +${e.amount}`);
       else if (e.flag==='Greedy') state.lastLog.push(`Greed +${e.amount}`);
-      else if (/^(Iron_|Whispers_|Ashen_|Veilbreak_)/.test(e.flag)) state.lastLog.push(`Clue gained: ${e.flag}`);
-      else if (/^Allies/.test(e.flag)) state.lastLog.push(`Flag: ${e.flag} +${e.amount}`);
+      // Do not log flags like Iron_*, Whispers_*, Ashen_*, Veilbreak_*, Allies_*
       break;
     case 'ally':
       if (!state.allies.includes(e.add)) { state.allies.push(e.add); state.lastLog.push(`Ally gained: ${e.add}`); }
@@ -178,8 +178,9 @@ function pick(n){
   try {
     const choice = list[idx];
     applyChoice(choice);
+    // Add choice text to lastLog so it appears in the "Recent" section
     if (choice.text) {
-      line(`<div class='choice-text'>${choice.text.replace(/\\n/g,'<br/>').replace(/\n/g,'<br/>')}</div>`);
+      state.lastLog.push(choice.text);
     }
     render();
   } catch (e){

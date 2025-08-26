@@ -42,6 +42,7 @@ export interface Choice {
   onFail?: Effect[];
   oneShotKey?: string;
   next?: string;
+  text?: string;
 }
 
 export interface NPC { id:string; name:string; desc:string; }

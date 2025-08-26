@@ -54,6 +54,7 @@
               "amount": 1
             }
           ],
+          "text": "Torv nods, impressed: 'Deeds speak louder than boasts.'",
           "next": "arrival"
         },
         {
@@ -76,6 +77,7 @@
               "amount": 1
             }
           ],
+          "text": "Torv frowns, but takes the coin: 'Gold can't buy respect here.'",
           "next": "arrival"
         },
         {
@@ -148,6 +150,7 @@
               "amount": 1
             }
           ],
+          "text": "Hild narrows her eyes, but nods in respect.",
           "next": "arrival"
         },
         {
@@ -172,6 +175,7 @@
               "amount": 1
             }
           ],
+          "text": "Torv grins: 'You'd do well in the ring.'",
           "next": "arrival"
         },
         {
@@ -194,6 +198,7 @@
               "amount": 1
             }
           ],
+          "text": "Astrid hands you the fish, eyes sharp: 'Spend wisely.'",
           "next": "arrival"
         }
       ]

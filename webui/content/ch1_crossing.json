@@ -21,6 +21,7 @@
               "amount": 1
             }
           ],
+          "text": "The coin disappears into your pouch with practiced ease.",
           "next": "dock"
         },
         {
@@ -33,11 +34,13 @@
               "amount": 1
             }
           ],
+          "text": "The stranger’s eyes widen in surprise, then gratitude.",
           "next": "dock"
         },
         {
           "id": "ignore",
           "label": "Ignore it",
+          "text": "You step over the coin, leaving it for fate.",
           "next": "dock"
         }
       ]
@@ -62,7 +65,8 @@
               "delta": -2
             }
           ],
-          "next": "hold"
+          "text": "Garn’s hand closes over your coins, eyes never leaving yours.",
+          "next": "aboard"
         },
         {
           "id": "haggle",
@@ -80,7 +84,8 @@
               "delta": -1
             }
           ],
-          "next": "hold"
+          "text": "He grumbles, but relents: 'You drive a hard bargain.'",
+          "next": "aboard"
         },
         {
           "id": "bribe1",
@@ -97,11 +102,13 @@
               "delta": -1
             }
           ],
-          "next": "hold"
+          "text": "Garn’s eyes flick left and right before pocketing your bribe.",
+          "next": "aboard"
         },
         {
           "id": "sneak",
           "label": "Try to slip aboard unseen (risky)",
+          "text": "You blend with the shadows, heart pounding.",
           "next": "hold"
         },
         {
@@ -138,6 +145,7 @@
               "delta": 1
             }
           ],
+          "text": "Your fingers work the mechanism until it clicks open—a few coins inside.",
           "next": "guard"
         },
         {
@@ -156,11 +164,13 @@
               "delta": 1
             }
           ],
+          "text": "The lockbox breaks open with a satisfying crack, revealing coins.",
           "next": "guard"
         },
         {
           "id": "leave_it",
           "label": "Leave it",
+          "text": "Best not to risk discovery over a few coins.",
           "next": "guard"
         }
       ]
@@ -185,6 +195,7 @@
               "delta": -1
             }
           ],
+          "text": "Sten's eyes narrow, but the coin disappears into his pocket.",
           "next": "trial_random"
         },
         {
@@ -197,11 +208,13 @@
               "min": 2
             }
           ],
+          "text": "You flash a confident smile and stride past before he can object.",
           "next": "trial_random"
         },
         {
           "id": "down",
           "label": "Keep your head down",
+          "text": "You avert your gaze and slip past in the crowd.",
           "next": "trial_random"
         }
       ]
@@ -240,7 +253,7 @@
               "amount": 1
             }
           ],
-          "text": "You spot scuffed grain and a muddy print—someone lied about where they were.",
+          "text": "You spot scuff marks leading away from the scene—important evidence.",
           "next": "sab_scene"
         },
         {
@@ -253,6 +266,7 @@
               "amount": 1
             }
           ],
+          "text": "Harl protests his innocence, but doubt clouds Istra's face.",
           "next": "reveal"
         },
         {
@@ -272,6 +286,7 @@
               "amount": 1
             }
           ],
+          "text": "Branik's story crumbles under scrutiny—you've found the saboteur.",
           "next": "reveal"
         },
         {
@@ -390,7 +405,6 @@
               "amount": 1
             }
           ],
-          "text": "Leif’s answers are quick and true—he really does know the galley’s layout.",
           "next": "stow_scene"
         },
         {
@@ -488,6 +502,18 @@
       "title": "Path Not Taken",
       "text": "You vanish into the alleys. The mission ends.",
       "choices": []
+    },
+    {
+      "id": "aboard",
+      "title": "Aboard the Ferry",
+      "text": "You step aboard. The deck rocks beneath your feet as the journey begins.",
+      "choices": [
+        {
+          "id": "continue",
+          "label": "Continue on your journey",
+          "next": "guard"
+        }
+      ]
     }
   ]
 }

@@ -116,7 +116,14 @@ async function main(){
     } else if (res.kind==='choice') {
       const n = res.n;
       const chosen = choices[n-1].id;
-      try { router.applyChoice(chosen); }
+      const choiceObj = router.current().choices.find(c => c.id === chosen);
+      try { 
+        router.applyChoice(chosen);
+        // Display choice text if available
+        if (choiceObj?.text) {
+          console.log(`\n${choiceObj.text}`);
+        }
+      }
       catch (e: unknown) {
         let msg = 'Action failed.';
         if (typeof e === 'object' && e !== null && 'message' in e && typeof (e as { message?: unknown }).message === 'string') {
