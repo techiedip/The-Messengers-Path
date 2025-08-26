@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { GameState, Scene } from '../model/Types';
+import { GameState, Scene, Chapter } from '../model/Types';
 
 function friendlyTitle(s: GameState): string {
   const id = s.sceneId;
@@ -20,11 +20,22 @@ function friendlyTitle(s: GameState): string {
   return id.replace(/_/g,' ').replace(/\b\w/g, (m)=>m.toUpperCase());
 }
 
+function getChapterTitle(chapterId: string, chapters: Record<string, Chapter>): string {
+  const ch = chapters[chapterId];
+  return ch ? ch.title : chapterId.replace(/_/g,' ').replace(/\b\w/g, (m)=>m.toUpperCase());
+}
+
+function getFullTitle(scene: Scene, s: GameState, chapters: Record<string, Chapter>): string {
+  const chapterTitle = getChapterTitle(s.chapterId, chapters);
+  const sceneTitle = scene.title || friendlyTitle(s);
+  return `${chapterTitle}: ${sceneTitle}`;
+}
+
 
 export class Renderer {
-  static printScene(scene: Scene, s: GameState) {
+  static printScene(scene: Scene, s: GameState, chapters: Record<string, Chapter>) {
     console.clear();
-    const title = scene.title || friendlyTitle(s);
+    const title = getFullTitle(scene, s, chapters);
     console.log(chalk.cyanBright(`\n== ${title} ==\n`));
     console.log(scene.text);
     if (s.lastLog && s.lastLog.length) { console.log(chalk.green(`\nRecent: ${s.lastLog.join(' • ')}`)); s.lastLog = []; }

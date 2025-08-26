@@ -226,8 +226,7 @@
       "choices": [
         {
           "id": "await",
-          "label": "(The Captain draws lots\u2026)",
-          "next": "trial_random"
+          "label": "(The Captain draws lots\u2026)"
         }
       ]
     },

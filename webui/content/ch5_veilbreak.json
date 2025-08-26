@@ -245,6 +245,7 @@
               "amount": 1
             }
           ],
+          "text": "Alva's hands shake as she pours—something's not right about the wine.",
           "next": "hall_v"
         },
         {
@@ -257,6 +258,7 @@
               "amount": 1
             }
           ],
+          "text": "Leiknir's voice booms: 'Our chief's wisdom shines like the sun!'",
           "next": "hall_v"
         },
         {
@@ -276,6 +278,7 @@
               "amount": 1
             }
           ],
+          "text": "Thora's scarred lip twitches—she knows exactly who you are.",
           "next": "hall_v"
         },
         {
@@ -288,12 +291,14 @@
               "amount": 1
             }
           ],
+          "text": "You unfurl the scroll. Hrovald's smile turns predatory.",
           "oneShotKey": "veilbreak_trap",
           "next": "captured_v"
         },
         {
           "id": "withhold_v",
           "label": "Withhold the scroll (leave safely)",
+          "text": "You keep the scroll hidden and make polite excuses to leave.",
           "next": "depart_v"
         },
         {
@@ -313,6 +318,7 @@
               "amount": 1
             }
           ],
+          "text": "You spin a clever tale and retreat before they realize the deception.",
           "next": "depart_v"
         }
       ]

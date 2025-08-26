@@ -10,6 +10,7 @@ export class CheckSystem {
         return Object.entries(s.flags).filter(([k])=>k.startsWith(req.prefix))
           .reduce((a, [,v])=>a + (v as number), 0) >= req.min;
       case 'item': return s.inventory.items.includes(req.id);
+      case 'notVisited': return !s.visitedIsles.includes(req.isle);
       default: return false;
     }
   }

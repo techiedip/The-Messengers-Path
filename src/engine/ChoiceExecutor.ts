@@ -32,6 +32,9 @@ function applyEffect(e: Effect, s: GameState, summaries: string[]) {
     case 'goto':
       s.chapterId = e.chapterId; s.sceneId = e.sceneId;
       break;
+    case 'visitIsle':
+      if (!s.visitedIsles.includes(e.isle)) { s.visitedIsles.push(e.isle); }
+      break;
   }
 }
 

@@ -23,7 +23,8 @@ export interface RequirementCoins { type:'coins'; min:number; }
 export interface RequirementFlagMin { type:'flagMin'; flag:string; min:number; }
 export interface RequirementClueSum { type:'clueSum'; prefix:string; min:number; }
 export interface RequirementItem { type:'item'; id:string; }
-export type Requirement = RequirementStat|RequirementCoins|RequirementFlagMin|RequirementClueSum|RequirementItem;
+export interface RequirementNotVisited { type:'notVisited'; isle:string; }
+export type Requirement = RequirementStat|RequirementCoins|RequirementFlagMin|RequirementClueSum|RequirementItem|RequirementNotVisited;
 
 export interface EffectStatGain { type:'statGain'; stat: Stat; amount:number; }
 export interface EffectCoins { type:'coins'; delta:number; }
@@ -33,7 +34,8 @@ export interface EffectScrolls { type:'scrolls'; delta:number; }
 export interface EffectItem { type:'item'; op:'add'|'remove'; id:string; }
 export interface EffectKnowledge { type:'knowledge'; add:string; }
 export interface EffectGoto { type:'goto'; chapterId:string; sceneId:string; }
-export type Effect = EffectStatGain|EffectCoins|EffectAddFlag|EffectAlly|EffectScrolls|EffectItem|EffectKnowledge|EffectGoto;
+export interface EffectVisitIsle { type:'visitIsle'; isle:string; }
+export type Effect = EffectStatGain|EffectCoins|EffectAddFlag|EffectAlly|EffectScrolls|EffectItem|EffectKnowledge|EffectGoto|EffectVisitIsle;
 
 export interface Choice {
   id:string; label:string;

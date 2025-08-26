@@ -91,9 +91,44 @@ async function main(){
 
     maybeRouteRandomTrial();
     const scene = router.current();
-    Renderer.printScene(scene, state);
+    Renderer.printScene(scene, state, idx.chapters);
     const choices = router.availableChoices().map(c=>({id:c.id,label:c.label}));
-    if (choices.length===0) { console.log('\n[No more choices. The story ends here.]'); break; }
+    if (choices.length===0) { 
+      console.log('\n[The story ends here.]');
+      console.log('\nChoices:');
+      console.log('1. Return to the beginning');
+      console.log('2. Quit game');
+      
+      const res = await askChoiceOrCommand(2);
+      if (res.kind==='choice') {
+        if (res.n === 1) {
+          // Reset to beginning
+          Object.assign(state, {
+            chapterId: 'prologue',
+            sceneId: 'square',
+            stats: { wit:0, charm:0, might:0 },
+            flags: {},
+            inventory: { coins: 1, items: [], knowledge: [] },
+            allies: [],
+            visitedIsles: [],
+            rngSeed: 42,
+            history: [],
+            oneShotLocks: {},
+            isGameOver: false,
+            lastLog: []
+          });
+          continue;
+        } else {
+          break;
+        }
+      } else if (res.kind==='cmd') {
+        const c = res.cmd;
+        if (c==='s' || c==='save') { saveState(res.arg || 'last_save.json'); continue; }
+        if (c==='l' || c==='load') { loadState(res.arg || 'last_save.json'); continue; }
+        if (c==='q' || c==='quit') { console.log('\n[Goodbye]'); break; }
+      }
+      continue;
+    }
     if (SMOKE) {
       const chosen = choices[0].id;
       try { router.applyChoice(chosen); } catch (e) {

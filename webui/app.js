@@ -58,6 +58,7 @@ function testReq(req){
     case 'flagMin': return (state.flags[req.flag] ?? 0) >= req.min;
     case 'clueSum': return flagSum(req.prefix) >= req.min;
     case 'item': return state.inventory.items.includes(req.id);
+    case 'notVisited': return !state.visitedIsles.includes(req.isle);
     default: return false;
   }
 }
@@ -97,6 +98,9 @@ function applyEffect(e){
     case 'goto':
       state.chapterId = e.chapterId; state.sceneId = e.sceneId;
       break;
+    case 'visitIsle':
+      if (!state.visitedIsles.includes(e.isle)) { state.visitedIsles.push(e.isle); }
+      break;
   }
 }
 
@@ -122,6 +126,17 @@ function friendlyTitle(scene){
   return scene.title || map[state.sceneId] || state.sceneId.replace(/_/g,' ').replace(/\b\w/g,m=>m.toUpperCase());
 }
 
+function getChapterTitle(){
+  const ch = chapters[state.chapterId];
+  return ch ? ch.title : state.chapterId.replace(/_/g,' ').replace(/\b\w/g,m=>m.toUpperCase());
+}
+
+function getFullTitle(scene){
+  const chapterTitle = getChapterTitle();
+  const sceneTitle = friendlyTitle(scene);
+  return `${chapterTitle}: ${sceneTitle}`;
+}
+
 // Randomize Captain's trial
 function maybeRouteRandomTrial(){
   if (state.chapterId==='ch1_crossing' && state.sceneId==='trial_random'){
@@ -144,7 +159,7 @@ function render(){
   maybeRouteRandomTrial();
   const scene = currentScene();
   clearTerm();
-  line(`<h2>${friendlyTitle(scene)}</h2>`);
+  line(`<h2>${getFullTitle(scene)}</h2>`);
   line(scene.text.replace(/\\n/g,'<br/>').replace(/\n/g,'<br/>'));
   if (state.lastLog && state.lastLog.length){
     line(`<div class="flash">Recent: ${state.lastLog.join(' • ')}</div>`);
@@ -157,6 +172,19 @@ function render(){
   hr();
   const avail = (scene.choices||[]).filter(canChoose);
   state._visibleChoices = avail; // keep for input
+  
+  // Handle game end case
+  if (avail.length === 0) {
+    line('<div class="flash">The story ends here.</div>');
+    const restartChoice = {
+      id: 'restart_game',
+      label: 'Return to the beginning',
+      effects: []
+    };
+    avail.push(restartChoice);
+    state._visibleChoices = avail;
+  }
+  
   avail.forEach((c,i)=>{
     const div = document.createElement('div');
     div.className = 'choice';
@@ -177,6 +205,27 @@ function pick(n){
   if (idx<0 || idx>=list.length) return;
   try {
     const choice = list[idx];
+    
+    // Handle restart game choice
+    if (choice.id === 'restart_game') {
+      Object.assign(state, {
+        chapterId: 'prologue',
+        sceneId: 'square',
+        stats: { wit:0, charm:0, might:0 },
+        flags: {},
+        inventory: { coins: 1, items: [], knowledge: [] },
+        allies: [],
+        visitedIsles: [],
+        rngSeed: 42,
+        history: [],
+        oneShotLocks: {},
+        isGameOver: false,
+        lastLog: []
+      });
+      render();
+      return;
+    }
+    
     applyChoice(choice);
     // Add choice text to lastLog so it appears in the "Recent" section
     if (choice.text) {

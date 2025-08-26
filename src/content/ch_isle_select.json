@@ -10,46 +10,90 @@
         {
           "id": "to_iron",
           "label": "Sail to Isle of Iron",
+          "requirements": [
+            {
+              "type": "notVisited",
+              "isle": "Iron"
+            }
+          ],
           "effects": [
+            {
+              "type": "visitIsle",
+              "isle": "Iron"
+            },
             {
               "type": "goto",
               "chapterId": "ch2_iron",
               "sceneId": "arrival"
             }
-          ]
+          ],
+          "text": "The ship cuts through iron-gray waters toward the warrior isle."
         },
         {
           "id": "to_whispers",
           "label": "Sail to Isle of Whispers",
+          "requirements": [
+            {
+              "type": "notVisited",
+              "isle": "Whispers"
+            }
+          ],
           "effects": [
+            {
+              "type": "visitIsle",
+              "isle": "Whispers"
+            },
             {
               "type": "goto",
               "chapterId": "ch3_whispers",
               "sceneId": "arrival_w"
             }
-          ]
+          ],
+          "text": "Mist shrouds the approach to the mysterious isle."
         },
         {
           "id": "to_ashen",
           "label": "Sail to Isle of Ashen Markets",
+          "requirements": [
+            {
+              "type": "notVisited",
+              "isle": "Ashen"
+            }
+          ],
           "effects": [
+            {
+              "type": "visitIsle",
+              "isle": "Ashen"
+            },
             {
               "type": "goto",
               "chapterId": "ch4_ashen",
               "sceneId": "arrival_a"
             }
-          ]
+          ],
+          "text": "Smoke and embers mark the horizon as you approach the trade isle."
         },
         {
           "id": "to_veilbreak",
           "label": "Sail to Isle of Veilbreak",
+          "requirements": [
+            {
+              "type": "notVisited",
+              "isle": "Veilbreak"
+            }
+          ],
           "effects": [
+            {
+              "type": "visitIsle",
+              "isle": "Veilbreak"
+            },
             {
               "type": "goto",
               "chapterId": "ch5_veilbreak",
               "sceneId": "arrival_v"
             }
-          ]
+          ],
+          "text": "The ship heads toward the mystical isle where reality grows thin."
         },
         {
           "id": "to_convergence",
