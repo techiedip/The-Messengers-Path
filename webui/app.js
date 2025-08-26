@@ -9,7 +9,7 @@ const state = {
   inventory: { coins: 1, items: [], knowledge: [] },
   allies: [],
   visitedIsles: [],
-  rngSeed: 42,
+  rngSeed: Math.floor(Math.random() * 1000000),
   history: [],
   oneShotLocks: {},
   isGameOver: false,
@@ -21,6 +21,7 @@ class RNG {
   constructor(seed){ this.seed = seed || 1; }
   next(){ this.seed = (this.seed*1664525+1013904223) % 4294967296; return this.seed/4294967296; }
   int(max){ return Math.floor(this.next()*max); }
+  setSeed(newSeed){ this.seed = newSeed; }
 }
 const rng = new RNG(state.rngSeed);
 
@@ -216,12 +217,14 @@ function pick(n){
         inventory: { coins: 1, items: [], knowledge: [] },
         allies: [],
         visitedIsles: [],
-        rngSeed: 42,
+        rngSeed: Math.floor(Math.random() * 1000000), // Use random seed each restart
         history: [],
         oneShotLocks: {},
         isGameOver: false,
         lastLog: []
       });
+      // Reset RNG with new seed
+      rng.setSeed(state.rngSeed);
       render();
       return;
     }

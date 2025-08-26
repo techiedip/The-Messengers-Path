@@ -336,6 +336,7 @@
               "amount": 1
             }
           ],
+          "text": "You climb through wind and rain, muscles straining as you wrestle the sail down.",
           "next": "reveal"
         },
         {
@@ -355,6 +356,7 @@
               "amount": 1
             }
           ],
+          "text": "Your voice cuts through the storm, rallying frightened sailors to their duties.",
           "next": "reveal"
         },
         {
@@ -374,6 +376,20 @@
               "amount": 1
             }
           ],
+          "text": "Your knots hold fast against the howling wind—clever seamanship saves the day.",
+          "next": "reveal"
+        },
+        {
+          "id": "hesitate",
+          "label": "Hesitate, overwhelmed by the chaos",
+          "effects": [
+            {
+              "type": "addFlag",
+              "flag": "Suspicion",
+              "amount": 1
+            }
+          ],
+          "text": "You freeze as spray and shouts fill the air. Istra's eyes narrow with disappointment.",
           "next": "reveal"
         }
       ]
@@ -404,6 +420,7 @@
               "amount": 1
             }
           ],
+          "text": "You probe Leif's story carefully—his details ring true.",
           "next": "stow_scene"
         },
         {
@@ -427,6 +444,7 @@
               "delta": 1
             }
           ],
+          "text": "Your words sway Istra—Leif earns passage and a grateful coin for you.",
           "next": "reveal"
         },
         {
@@ -450,6 +468,7 @@
               "add": "tavern_keeper_knows"
             }
           ],
+          "text": "Your clever argument about Leif's skills convinces Istra—the keen insight proves valuable.",
           "next": "reveal"
         },
         {
@@ -474,6 +493,7 @@
               "id": "StowawayToken"
             }
           ],
+          "text": "Your intimidating presence forces compliance—Leif owes you a favor for this dark kindness.",
           "next": "reveal"
         }
       ]

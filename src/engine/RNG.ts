@@ -3,4 +3,6 @@ export class RNG {
   constructor(seed:number){ this.seed = seed || 1; }
   next(): number { this.seed = (this.seed*1664525+1013904223) % 4294967296; return this.seed/4294967296; }
   chance(p:number){ return this.next() < p; }
+  int(max: number): number { return Math.floor(this.next() * max); }
+  setSeed(newSeed: number){ this.seed = newSeed; }
 }

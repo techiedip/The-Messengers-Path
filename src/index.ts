@@ -29,7 +29,7 @@ const state: GameState = {
   inventory: { coins: 1, items: [], knowledge: [] },
   allies: [],
   visitedIsles: [],
-  rngSeed: 42,
+  rngSeed: Math.floor(Math.random() * 1000000),
   history: [],
   oneShotLocks: {},
   isGameOver: false,
@@ -103,6 +103,7 @@ async function main(){
       if (res.kind==='choice') {
         if (res.n === 1) {
           // Reset to beginning
+          const newSeed = Math.floor(Math.random() * 1000000);
           Object.assign(state, {
             chapterId: 'prologue',
             sceneId: 'square',
@@ -111,12 +112,13 @@ async function main(){
             inventory: { coins: 1, items: [], knowledge: [] },
             allies: [],
             visitedIsles: [],
-            rngSeed: 42,
+            rngSeed: newSeed,
             history: [],
             oneShotLocks: {},
             isGameOver: false,
             lastLog: []
           });
+          rng.setSeed(newSeed); // Reset RNG with new seed
           continue;
         } else {
           break;
